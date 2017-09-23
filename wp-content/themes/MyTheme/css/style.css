@@ -1,0 +1,105 @@
+body{
+	overflow-x: hidden;
+}
+
+
+#about-icon{
+	padding: 1vmax;
+	margin-top: 2vh;
+	display: inline-block;
+}
+
+.navbar{
+	margin: 0;
+	padding: 0;
+}
+
+#myCarousel{
+	width: 100vw;
+	margin: 0;
+	padding: 0;
+	height: 92vh;
+}
+.carousel-inner{
+	width: 100vw;
+	height: 92vh;
+}
+.item{
+	height: 92vh;
+	width: 100vw;
+}
+
+.brands{
+	transition: 0.1s;
+	border-radius: 10px;
+	width: 18vmax;
+	margin-bottom: 5vmin;
+	height: 20vmin;
+	display: inline-block;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.brands:hover{
+	transform: scale(1.1);
+	transition: 0.1s;
+}
+
+.attachment-medium{
+	height: 35vmin;
+	width: 18vmax;
+}
+
+.title a{
+	text-decoration: none;
+	color: blue;
+}
+.title a:hover{
+	color: darkblue;
+}
+
+.modal-header{
+	padding: 1vmin;
+}
+
+#close-modal{
+	margin: 1vmin;
+}
+
+.plus-sign, .minus-sign{
+	display: inline-block;
+}
+
+.plus-sign img, .minus-sign img{
+	width: 25px;
+	height: 25px;
+}
+
+#number-items{
+	width: 50%;
+	padding-right: 0px;
+	text-align: center;
+}
+
+#cart-img-thumbnail{
+	width: inherit;
+	height: auto;
+}
+
+#brands-img-thumbnail{
+	width: 15vmax;
+	height: 30vmin;
+}
+.row, .col{
+	margin: 0;
+	padding: 0;
+}
+
+#contain{
+	margin: 0;
+	margin-bottom: 2vmax;
+	border: 1px black solid;
+	border-radius: 10px;
+	padding-top: 2vmin;
+	padding-bottom: 2vmin; 
+}
