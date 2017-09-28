@@ -57,6 +57,8 @@ if ($_POST['decrease_id'] && $_POST['number']){
 
 ?>
 
+<div class="container">
+
 <?php 
 if (!isset($_SESSION['username'])){
 	wp_redirect(get_home_url());
@@ -64,22 +66,31 @@ if (!isset($_SESSION['username'])){
 
 global $wpdb;
 $query = $wpdb->get_results("SELECT * FROM username_".$_SESSION['username']);
+$count = $wpdb->num_rows;
+
+$total = 0;
 
 if ($query==null){
-	echo "<br>";
+	echo "<br><br><br>";
 	echo "<h2>Cart is Empty</h2>";
 	echo "<h2>Go back to our <a href='".get_home_url()."'>Home Page</a></h2>";
 }
+else{
+	echo "<br><br><br>";
+	echo "<h4>My Cart (".$count.")</h4>";
+} ?>
 
-foreach($query as $array){ ?>
-<div class="row">
-	<h1><?php echo $array->phone_name ;?></h1>
+<div class="col-xs-12 col-sm-9 col-md-8">
+<?php foreach($query as $array){ ?>
+<div class="row" style="border: 1px solid #ccc">
+	
 
 	<?php 
 	$id = $array->id;
 	$post_id = $array->phone_id; 
 	$price = $array->phone_price;
 	$number = $array->number_items;
+	$total += $price * $number;
 	?>
 
 	<center>
@@ -88,29 +99,42 @@ foreach($query as $array){ ?>
 	</div>
 
 	<div class="col-xs-12 col-sm-7 col-md-8">
-		<?php echo $id; ?>
-		<?php echo $price; ?>
-		<?php echo $number; ?>
-		<?php echo $price*$number; ?>
+		<h3><?php echo $array->phone_name ;?></h3>
+		<h4>Price: <?php echo $price*$number; ?></h4>
 
-		<form action="" method="post">
+		<form action="" method="post" style="display: inline-block;">
 			<input type="hidden" value="<?php echo $id ?>" name="increase_id">
 			<input type="hidden" value="<?php echo $number ?>" name="number">
 
-			<button type="submit">Increase</button>
+			<button type="submit" style="background: none;border-radius: 50%;border: 2px solid #ddd">+</button>
 		</form>
 
-		<form  action="" method="post">
+		<div style="display: inline-block;border: 1px solid #ccc; padding: 1vmin 2vmin;margin: 0 2vmin;"> <?php echo $number; ?></div>
+
+		<form  action="" method="post" style="display: inline-block;">
 			<input type="hidden" value="<?php echo $id ?>" name="decrease_id">
 			<input type="hidden" value="<?php echo $number ?>" name="number">
 
-			<button type="submit">Decrease</button>
+			<button type="submit" style="background: none;border-radius: 50%;border: 2px solid #ddd;width: 100%; height: auto; padding-left: 1.25vmin;padding-right: 1.25vmin;">-</button>
 		</form>
 
 	</center>
 </div>
 
 <?php } ?>
+</div>
+
+<div class="col-xs-12 col-sm-3 col-md-4" style="border: 1px solid #ccc">
+
+	<h3>Total: <?php echo $total; ?> </h3>
+	<form action="#" type="post">
+	<input type="hidden" value="<?php echo $total ?>" name="total">
+	<button type="submit" class="btn btn-primary btn-block">Confirm</button>
+	<br>
+	</form>
+
+</div>
+</div>
 
 
 

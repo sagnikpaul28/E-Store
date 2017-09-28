@@ -1,11 +1,10 @@
 <?php get_header(); ?>
 
 <?php 
-if ($_POST['phone-name'] && $_POST['phone-price'] && $_POST['number-items'] && $_POST['phone-id']){
+if ($_POST['phone-name'] && $_POST['phone-price'] && $_POST['phone-id']){
     $name = $_POST['phone-name'];
     $price = (int)$_POST['phone-price'];
     $id = $_POST['phone-id'];
-    $number = $_POST['number-items'];
     $number1 = 0;
 
     global $wpdb;
@@ -25,7 +24,7 @@ if ($_POST['phone-name'] && $_POST['phone-price'] && $_POST['number-items'] && $
             $table_name,
             array(
                 'phone_price' => $price,
-                'number_items'=>$number+$number1
+                'number_items'=>$number1 + 1
             ),
             array(
                 'phone_name'=>$name
@@ -45,7 +44,7 @@ if ($_POST['phone-name'] && $_POST['phone-price'] && $_POST['number-items'] && $
             array(
                 'phone_name' => $name,
                 'phone_price' => $price,
-                'number_items' => $number,
+                'number_items' => 1,
                 'phone_id' => $id
             ),
             array(
@@ -58,56 +57,60 @@ if ($_POST['phone-name'] && $_POST['phone-price'] && $_POST['number-items'] && $
     }
 }
 ?>
-
+<br><br>
 
 <div class="container">
-	<h2><?php the_title(); ?></h2>
 
 	<?php
 	if (have_posts()):
 		while(have_posts()): the_post(); ?>
 
-		<?php the_content(); ?>
+        <h2><?php the_title(); ?></h2>
+
+            <h3>Rs <?php echo get_post_meta(get_the_ID(), 'Price', true); ?></h3>
+
+		
 		<br>
 
 		<div class="col-xs-12 col-md-4">
 
 		<center>
-        <?php the_post_thumbnail('medium'); ?>
-        <hr>
-
-        <h4>Rs <?php echo get_post_meta(get_the_ID(), 'Price', true); ?></h4>
+            <div class="thumbnail">
+                <?php the_post_thumbnail('medium'); ?>
+            </div>
 
         <form action="" method="post">
-        	<div class="minus-sign" onclick="decrement()"><img src="http://localhost/E-Store/wp-content/uploads/2017/09/minus.png"></div>
-        	<input id="number-items" type="number" readonly class="form-control" name="number-items" style="display: inline-block;">
-        	<div class="plus-sign" onclick="increment()"><img src="http://localhost/E-Store/wp-content/uploads/2017/09/plus.png"></div>
-        	
-        	<hr>
 
-        	<input type="hidden" name="phone-name" value="<?php echo get_the_title(); ?>">
-
-        	<input type="hidden" name="phone-price" value="<?php echo get_post_meta(get_the_ID(), 'Price', true); ?>">
-
-            <input type="hidden" name="phone-id" value="<?php echo get_the_ID(); ?>">
 
             <?php
             if ($_SESSION['username']){
             ?>
-        	<button type="submit" class="btn btn-primary btn-block" >Order Now</button>
+            <input type="hidden" name="phone-name" value="<?php echo get_the_title(); ?>">
+            <input type="hidden" name="phone-id" value="<?php echo get_the_ID(); ?>">
+            <input type="hidden" name="phone-price" value="<?php echo get_post_meta(get_the_ID(), 'Price', true); ?>">
+
+        	<button type="submit" class="btn btn-primary btn-block" id="single-submit" >Add To Cart</button>
+
             <?php
             }else{
             ?>
+            <hr>
             <button type="button" class="btn btn-primary btn-block" href="#myModal" data-toggle="modal">Order Now</button>
             <?php
             }
             ?>
 
         </form>
+        <br>
+        <button type="button" class="btn btn-primary btn-block" onclick="window.location.href = window.location.hostname + '/cart'"">Go To Cart</button>
+        <br>
     	</center>
         </div>
 
         <div class="col-xs-12 col-md-8">
+
+            <div id="single-specifications" style="border: 1px solid #ddd ;padding: 0vmin 2vmin;margin-bottom: 2vmin">
+                <h3>Specifications</h3>
             <h4>Network</h4>
             <h6>Technology: <?php echo get_post_meta(get_the_ID(), 'Technology', true); ?></h6>
             <h6>SIM: <?php echo get_post_meta(get_the_ID(), 'Sim', true); ?></h6>
@@ -127,6 +130,15 @@ if ($_POST['phone-name'] && $_POST['phone-price'] && $_POST['number-items'] && $
             <h6>Secondary: <?php echo get_post_meta(get_the_ID(), 'Secondary Camera', true); ?></h6>
             <h4>Battery</h4>
             <h6>Capacity: <?php echo get_post_meta(get_the_ID(), 'Battery', true); ?></h6>
+            </div>
+
+            <?php 
+            if (get_the_content()): ?>
+            <div id="single-descriptions" style="border: 1px solid #ddd ;padding: 0vmin 2vmin;margin-bottom: 2vmin">
+                <h3>Description</h3> 
+                <h5><?php the_content(); ?></h5>
+            </div>
+            <?php endif; ?>
 
 
         </div>

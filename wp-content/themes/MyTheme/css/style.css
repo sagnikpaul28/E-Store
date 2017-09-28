@@ -18,14 +18,14 @@ body{
 	width: 100vw;
 	margin: 0;
 	padding: 0;
-	height: 92vh;
+	height: 100vh;
 }
 .carousel-inner{
 	width: 100vw;
-	height: 92vh;
+	height: 100vh;
 }
 .item{
-	height: 92vh;
+	height: 100vh;
 	width: 100vw;
 }
 
@@ -54,6 +54,18 @@ body{
 	text-decoration: none;
 	color: blue;
 }
+
+.title-brands a{
+	text-decoration: none;
+}
+
+.title-brands{
+	padding-left: 1vmax;
+	text-align: left;
+	color: black;
+	margin-top: 3vmin;
+}
+
 .title a:hover{
 	color: darkblue;
 }
@@ -66,29 +78,14 @@ body{
 	margin: 1vmin;
 }
 
-.plus-sign, .minus-sign{
-	display: inline-block;
-}
-
-.plus-sign img, .minus-sign img{
-	width: 25px;
-	height: 25px;
-}
-
-#number-items{
-	width: 50%;
-	padding-right: 0px;
-	text-align: center;
-}
-
 #cart-img-thumbnail{
-	width: inherit;
-	height: auto;
+	width: 12vmax;
+	height: 25vmin;
 }
 
 #brands-img-thumbnail{
-	width: 15vmax;
-	height: 30vmin;
+	width: 18vmax;
+	height: 40vmin;
 }
 .row, .col{
 	margin: 0;
@@ -96,10 +93,44 @@ body{
 }
 
 #contain{
-	margin: 0;
-	margin-bottom: 2vmax;
-	border: 1px black solid;
-	border-radius: 10px;
-	padding-top: 2vmin;
-	padding-bottom: 2vmin; 
+	margin-bottom: 5px;
+	padding: 3vmin 1vmin;
+}
+#contain:hover{
+	box-shadow: 0px 0px 2px 2px #ddd;
+}
+#contain h5{
+	margin-left: 1vmax;
+	text-align: left;
+}
+#contain:hover h5{
+	color: blue;
+	cursor: default;
+}
+
+.thumbnail{
+	padding: 3vmin 1vmin;
+}
+.thumbnail img{
+	height: 70vh;
+	width: auto;
+}
+
+#single-submit{
+	margin-top: 2vmin;
+}
+
+.brand-sort{
+	display: inline-block;
+	text-align: right;
+	padding: 0 2vmin;
+	cursor: pointer;	
+}
+
+
+@media only screen and (min-width: 700px){
+	#brands-img-thumbnail{
+		width: 15vmax;
+		height: 40vmin;
+	}
 }

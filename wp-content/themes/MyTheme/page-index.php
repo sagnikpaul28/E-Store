@@ -7,7 +7,6 @@ Template Name: Index Page
 get_header();
 ?>
 
-</div>
 <section class="first">
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
@@ -52,7 +51,7 @@ get_header();
 
 		<?php 
 
-    $query = new WP_Query('type=post&category_name="Brands"');
+    $query = new WP_Query('type=post&category_name="Brand"');
     if ($query->have_posts()):
       while($query->have_posts()): $query->the_post();
 

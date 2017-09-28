@@ -10,7 +10,7 @@
     </head>
     <body>
 
-    	<nav class="navbar navbar-inverse">
+    	<nav class="navbar navbar-inverse navbar-fixed-top">
     		<div class="container-fluid">
     			<div class="navbar-header">
     				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
@@ -44,6 +44,4 @@
     		</div>
     	</nav>
 
-    	<div class="col-xs-10 col-xs-offset-1">
-
-            <?php include "login_modal.php" ?>
+        <?php include "login_modal.php" ?>

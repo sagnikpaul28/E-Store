@@ -11,8 +11,9 @@ if (isset($_GET['err'])){
 
 <?php get_header(); ?>
 
+<br><br>
 
-<div class="container">
+<div class="row">
 	<br>
 	<div class="col-xs-10 col-xs-offset-1 col-md-5 col-md-offset-5" style="border: 1px #ddd solid; border-radius: 5px;">
 		<h3>Create Account</h3>
@@ -84,11 +85,6 @@ if (isset($_GET['err'])){
 		<p>Already have an Account? <a href="#myModal" data-toggle="modal">Log In</a>.</p>
 	</div>
 </div>
+<br><br>
 
-
-<?php
-
-
-
-?>
 <?php get_footer(); ?>
