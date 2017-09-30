@@ -1,8 +1,8 @@
 <?php 
 /*
-Plugin Name: Search by Brands
+Plugin Name: Search Bar
 Plugin URI: http://localhost/Ekart
-Description: Search within all the phones by the brand name
+Description: Search within all the phones by the different properties
 Version: 1.0
 Author: Sagnik Paul
 Author URI: http://localhost/Ekart
@@ -11,13 +11,13 @@ License: None
 
 
 function load_widget(){
-	register_widget('widget_search_brands');
+	register_widget('widget_searcher');
 }
 
 add_action('widgets_init', 'load_widget');
 
 
-class widget_search_brands extends WP_Widget{
+class widget_searcher extends WP_Widget{
 
 	function __construct(){
 
@@ -250,8 +250,7 @@ class widget_search_brands extends WP_Widget{
 			<div class="sidebar-div" style="padding: 1vmin 2vmin">
 				<button type="submit" class="btn btn-block btn-primary">Submit</button>
 			</div>
-			
-		</form>
+
 		
 
 		<?php

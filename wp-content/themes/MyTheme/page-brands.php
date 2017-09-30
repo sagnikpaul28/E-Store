@@ -12,21 +12,21 @@ get_header();
 	<?php get_sidebar(); ?>
 </div>
 
-<div class="col-xs-12 col-sm-9 col-md-10"
+<div class="col-xs-12 col-sm-9 col-md-10">
 
 <br><br>
 	<?php 
 	$count = 0;
 
-	$sort = $_GET['sort'];
+	$sort = $_POST['sort'];
 
-	if ($sort === "pricedesc"){
+	if ($sort === "Price Descending"){
 		$args = array('post_type' => 'mobile', 'meta_key' => 'price', 'orderby' => 'meta_value', 'order' => 'DESC');
 	}
-	else if ($sort === 'priceasc'){
+	else if ($sort === "Price Ascending"){
 		$args = array('post_type' => 'mobile', 'meta_key' => 'price', 'orderby' => 'meta_value', 'order' => 'ASC');
 	}
-	else if ($sort === 'oldest'){
+	else if ($sort === 'Oldest First'){
 		$args = array('post_type' => 'mobile', 'orderby' => 'date', 'order' => 'ASC');
 	}
 	else{
@@ -39,15 +39,125 @@ get_header();
 
 	<div class="sort-div">
 	<h4 class="brand-sort" style="width: 15vw;margin-left: 0">Sort by </h4>
-	<h5 class="brand-sort" onclick="window.location.href = window.location.hostname + window.location.pathname + '?sort=priceasc';">Price Low to High</h5>
-	<h5 class="brand-sort" onclick="window.location.href = window.location.hostname + window.location.pathname +'?sort=pricedesc';">Price High to Low</h5>
-	<h5 class="brand-sort" onclick="window.location.href = window.location.hostname + window.location.pathname + '?sort=newest';">Newest First</h5>
-	<h5 class="brand-sort" onclick="window.location.href = window.location.hostname + window.location.pathname + '?sort=oldest';">Oldest First</h5>
+	<input type="submit" name="sort" value="Price Ascending" style="background: none; border: 0; margin: 0 1vmin;">
+	<input type="submit" name="sort" value="Price Descending" style="background: none; border: 0; margin: 0 1vmin;">
+	<input type="submit" name="sort" value="Oldest First" style="background: none; border: 0; margin: 0 1vmin;">
+	<input type="submit" name="sort" value="Newest First" style="background: none; border: 0; margin: 0 1vmin;">
+	
 
 		<div class="row" >
 
 		<?php while($loop -> have_posts()): $loop -> the_post(); ?>
 
+			<?php
+			$countbrands = 0;
+			$countprice = 0;
+			$countbattery = 0;
+			$countinternal = 0;
+			$countprimarycam = 0;
+			$countram = 0;
+			$countscreen = 0;
+			$countsim = 0;
+
+			if ($_POST['brands']){
+				$countbrands = 1;
+				foreach($_POST['brands'] as $a){
+					$cats = get_the_category();
+					foreach($cats as $c){
+						if ($c->name === $a){
+							$countbrands = 0;
+						}
+					}
+				}
+			}
+
+			if ($_POST['price']){
+				$countprice = 1;
+				foreach($_POST['price'] as $a){
+					$cats = get_the_category();
+					foreach($cats as $c){
+						if ($c->name === $a){
+							$countprice = 0;
+						}
+					}
+				}
+			}
+
+			if ($_POST['battery']){
+				$countbattery = 1;
+				foreach($_POST['battery'] as $a){
+					$cats = get_the_category();
+					foreach($cats as $c){
+						if ($c->name === $a){
+							$countbattery = 0;
+						}
+					}
+				}
+			}
+
+			if ($_POST['internal']){
+				$countinternal = 1;
+				foreach($_POST['internal'] as $a){
+					$cats = get_the_category();
+					foreach($cats as $c){
+						if ($c->name === $a){
+							$countinternal = 0;
+						}
+					}
+				}
+			}
+
+			if ($_POST['primary_camera']){
+				$countprimarycam = 1;
+				foreach($_POST['primary_camera'] as $a){
+					$cats = get_the_category();
+					foreach($cats as $c){
+						if ($c->name === $a){
+							$countprimarycam = 0;
+						}
+					}
+				}
+			}
+
+			if ($_POST['ram']){
+				$countram = 1;
+				foreach($_POST['ram'] as $a){
+					$cats = get_the_category();
+					foreach($cats as $c){
+						if ($c->name === $a){
+							$countram = 0;
+						}
+					}
+				}
+			}
+
+			if ($_POST['screen']){
+				$countscreen = 1;
+				foreach($_POST['screen'] as $a){
+					$cats = get_the_category();
+					foreach($cats as $c){
+						if ($c->name === $a){
+							$countscreen = 0;
+						}
+					}
+				}
+			}
+
+			if ($_POST['sim']){
+				$countsim = 1;
+				foreach($_POST['sim'] as $a){
+					$cats = get_the_category();
+					foreach($cats as $c){
+						if ($c->name === $a){
+							$countsim = 0;
+						}
+					}
+				}
+			}
+
+			if ($countbrands===0 && $countsim===0 && $countscreen===0 && $countram===0 && $countprimarycam===0 && $countinternal===0 && $countbattery===0){
+
+		?>
 				<a href="<?php the_permalink() ?>">
 					<div class="col-xs-6 col-sm-4 col-md-3" id="contain">
 				
@@ -61,7 +171,8 @@ get_header();
 				</div>
 				</a>
 
-		<?php $count++; ?>
+
+		<?php $count++; }?>
 
 		<?php endwhile;
 	endif; ?>

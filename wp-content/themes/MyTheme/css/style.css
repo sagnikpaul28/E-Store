@@ -80,12 +80,12 @@ body{
 
 #cart-img-thumbnail{
 	width: 12vmax;
-	height: 25vmin;
+	height: 14vmax;
 }
 
 #brands-img-thumbnail{
-	width: 18vmax;
-	height: 40vmin;
+	width: 15vmax;
+	height: 18vmax;
 }
 .row, .col{
 	margin: 0;
@@ -112,7 +112,7 @@ body{
 	padding: 3vmin 1vmin;
 }
 .thumbnail img{
-	height: 70vh;
+	height: 60vh;
 	width: auto;
 }
 
@@ -137,10 +137,6 @@ body{
 	margin: 0;
 }
 
-
-@media only screen and (min-width: 700px){
-	#brands-img-thumbnail{
-		width: 15vmax;
-		height: 40vmin;
-	}
+.checkbox input{
+	background: none;
 }

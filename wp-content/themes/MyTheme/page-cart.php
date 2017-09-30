@@ -55,6 +55,14 @@ if ($_POST['decrease_id'] && $_POST['number']){
 	}
 }
 
+if ($_POST['delete_id']){
+	$d_id = $_POST['delete_id'];
+	$table_name = "username_".$_SESSION['username'];
+	global $wpdb;
+
+	$wpdb->delete($table_name, array('id' => $d_id), array('%d'));
+}
+
 ?>
 
 <div class="container">
@@ -118,10 +126,18 @@ else{
 			<button type="submit" style="background: none;border-radius: 50%;border: 2px solid #ddd;width: 100%; height: auto; padding-left: 1.25vmin;padding-right: 1.25vmin;">-</button>
 		</form>
 
+		<br>
+		
+		<form action="" method="post" style="display: block;">
+			<input type="hidden" value="<?php echo $id ?>" name="delete_id">
+
+			<button type="submit" name="delete" style="background: none; border:none;">Remove From Cart</button>
+		</form>
+
 	</center>
 </div>
 
-<?php } ?>
+
 </div>
 
 <div class="col-xs-12 col-sm-3 col-md-4" style="border: 1px solid #ccc">
@@ -134,6 +150,8 @@ else{
 	</form>
 
 </div>
+
+<?php } ?>
 </div>
 
 
