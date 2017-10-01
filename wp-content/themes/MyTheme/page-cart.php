@@ -1,4 +1,9 @@
-<?php get_header(); ?>
+<?php 
+if (!isset($_SESSION['username'])){
+	wp_redirect(get_home_url());
+}
+
+get_header(); ?>
 
 <?php
 if ($_POST['increase_id'] && $_POST['number']){
@@ -148,6 +153,9 @@ else{
 	<button type="submit" class="btn btn-primary btn-block">Confirm</button>
 	<br>
 	</form>
+
+	<a href="http://localhost/E-Store/shop"><button type="button" class="btn btn-primary btn-block">Continue Shopping</button></a>
+	<br>
 
 </div>
 

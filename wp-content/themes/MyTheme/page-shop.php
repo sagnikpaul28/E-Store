@@ -1,7 +1,7 @@
 <?php
 
 /*
-Template Name: Brand Page
+Template Name: Shop Page
 */
 
 
@@ -37,15 +37,20 @@ get_header();
 
 	if ($loop -> have_posts()): ?>
 
-	<div class="sort-div">
+	<div class="sort-div" style="display: inline-block">
 	<h4 class="brand-sort" style="width: 15vw;margin-left: 0">Sort by </h4>
 	<input type="submit" name="sort" value="Price Ascending" style="background: none; border: 0; margin: 0 1vmin;">
 	<input type="submit" name="sort" value="Price Descending" style="background: none; border: 0; margin: 0 1vmin;">
 	<input type="submit" name="sort" value="Oldest First" style="background: none; border: 0; margin: 0 1vmin;">
 	<input type="submit" name="sort" value="Newest First" style="background: none; border: 0; margin: 0 1vmin;">
+	</div>
+
+	</form>
+
+	<?php get_search_form(); ?>
 	
 
-		<div class="row" >
+	<div class="row" >
 
 		<?php while($loop -> have_posts()): $loop -> the_post(); ?>
 
@@ -58,6 +63,7 @@ get_header();
 			$countram = 0;
 			$countscreen = 0;
 			$countsim = 0;
+			$countsearch = 0;
 
 			if ($_POST['brands']){
 				$countbrands = 1;
@@ -155,28 +161,52 @@ get_header();
 				}
 			}
 
-			if ($countbrands===0 && $countsim===0 && $countscreen===0 && $countram===0 && $countprimarycam===0 && $countinternal===0 && $countbattery===0){
+
+			if ($_GET['Search']){
+				$countsearch = 1;
+
+				$search = $_GET['Search'];
+
+				if (stripos(get_the_title(), $search) !== false){
+					$countsearch = 0;
+				}
+			}
+
+			if ($countbrands===0 && $countsim===0 && $countscreen===0 && $countram===0 && $countprimarycam===0 && $countinternal===0 && $countbattery===0 && $countprice===0 && $countsearch===0){
 
 		?>
 				<a href="<?php the_permalink() ?>">
 					<div class="col-xs-6 col-sm-4 col-md-3" id="contain">
 				
-					<center>
-					<img src="<?php echo wp_get_attachment_url(get_post_thumbnail_id(get_the_ID())); ?>" id="brands-img-thumbnail">
+						<center>
+							<img src="<?php echo wp_get_attachment_url(get_post_thumbnail_id(get_the_ID())); ?>" id="brands-img-thumbnail">
 					
-					<?php the_title(sprintf( "<h4 class='title-brands'><a href='%s'>",esc_url(get_permalink())),'</a></h4>'); ?>
+							<?php the_title(sprintf( "<h4 class='title-brands'><a href='%s'>",esc_url(get_permalink())),'</a></h4>'); ?>
 
-					<h5>Rs <?php echo get_post_meta(get_the_ID(), 'Price', true); ?></h5>
-				</center>
-				</div>
+							<h5>Rs <?php echo get_post_meta(get_the_ID(), 'Price', true); ?></h5>
+						</center>
+					</div>
 				</a>
 
 
-		<?php $count++; }?>
+			<?php $count++; }?>
 
 		<?php endwhile;
-	endif; ?>
+	endif; 
+
+	if ($count===0){ ?>
+	<center>
+	<h2 style="margin-top: 10vh;">No Items Found.</h2>
+	</center>
+
+	<?php }
+
+	wp_reset_postdata();
+
+	?>
+	</div>
 </div>
+
 
 
 <?php get_footer(); ?>

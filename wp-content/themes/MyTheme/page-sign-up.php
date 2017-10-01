@@ -19,8 +19,12 @@ if (isset($_GET['err'])){
 		<h3>Create Account</h3>
 		<form action="http://localhost/E-Store/sign-up-script" method="post">
 			<div class="form-group">
-				<label for="name">Name:</label>
+				<label for="name">First Name:</label>
 				<input type="text" class="form-control" name="user-name" required>
+			</div>
+			<div class="form-group">
+				<label for="name">Last Name:</label>
+				<input type="text" class="form-control" name="user-last-name" required>
 			</div>
 			<div class="form-group">
 				<label for="username">Username:</label>

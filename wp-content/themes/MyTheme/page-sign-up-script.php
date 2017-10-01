@@ -2,6 +2,7 @@
 $count = -1;
 if ($_POST['signup']){
 	$name = $_POST['user-name'];
+	$surname= $_POST['user-last-name'];
 	$username = $_POST['username'];
 	$email = $_POST['user-email'];
 	$number = $_POST['user-number'];
@@ -14,7 +15,7 @@ if ($_POST['signup']){
 	$table_name = $wpdb->user_list;
 	$query = $wpdb ->get_row("SELECT * FROM user_list WHERE username = '".$username."';");
 	$query1 = $wpdb ->get_row("SELECT * FROM user_list WHERE email = '".$email."';");
-	$query2 = $wpdb-> get_row("SELECT * FROM user_list WHERE number = ".$number.";");
+	$query2 = $wpdb-> get_row("SELECT * FROM user_list WHERE number = '".$number."';");
 
 
 	if ($pwd !== $pwd2){
@@ -39,6 +40,7 @@ if ($_POST['signup']){
 			'user_list', 
 			array( 
 				'name' => $name,
+				'surname' => $surname,
 				'username' => $username, 
 				'email' => $email,
 				'number' => $number,
@@ -48,7 +50,8 @@ if ($_POST['signup']){
 				'%s', 
 				'%s',
 				'%s',
-				'%d',
+				'%s',
+				'%s',
 				'%s' 
 			) 
 		);

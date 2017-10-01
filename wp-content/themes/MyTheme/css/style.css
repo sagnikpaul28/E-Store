@@ -140,3 +140,11 @@ body{
 .checkbox input{
 	background: none;
 }
+
+#log-out-text a{
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
+	font-weight: bold;
+}
+
