@@ -2,6 +2,51 @@
 if (!isset($_SESSION['username'])){
 	wp_redirect(get_home_url());
 }
+else{
+	$username = $_SESSION['username'];
+}
+
+
+if ($_POST['total']){
+
+	global $wpdb;
+	$result = $wpdb->get_row("SELECT * FROM user_list WHERE username='".$username."';");
+	$fullname = $result->name." ".$result->surname;
+	$phone = $result->number;
+	$email = $result->email;
+
+
+	$ch = curl_init();
+
+	curl_setopt($ch, CURLOPT_URL, 'https://test.instamojo.com/api/1.1/payment-requests/');
+	curl_setopt($ch, CURLOPT_HEADER, FALSE);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+	curl_setopt($ch, CURLOPT_HTTPHEADER,
+	            array("X-Api-Key:3a91ca411f4ad6365d3977e5d534b28d",
+	                  "X-Auth-Token:367b2fb43864e630ff91f1b42273deab"));
+	$payload = Array(
+	    'purpose' => 'E-Store',
+	    'amount' => $_POST['total'],
+	    'phone' => $phone,
+	    'buyer_name' => $fullname,
+	    'redirect_url' => 'http://localhost/E-Store/payment-success',
+	    'send_email' => false,
+	    'webhook' => 'http://localhost/E-Store/webhook',
+	    'send_sms' => false,
+	    'email' => $email,
+	    'allow_repeated_payments' => true
+	);
+	curl_setopt($ch, CURLOPT_POST, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($payload));
+	$response = curl_exec($ch);
+	curl_close($ch); 
+
+	$json_decode = json_decode($response, true);
+	$long_url = $json_decode['payment_request']['longurl'];
+
+	wp_redirect($long_url);
+}
 
 get_header(); ?>
 
@@ -142,13 +187,14 @@ else{
 	</center>
 </div>
 
+<?php } ?>
 
 </div>
 
 <div class="col-xs-12 col-sm-3 col-md-4" style="border: 1px solid #ccc">
 
 	<h3>Total: <?php echo $total; ?> </h3>
-	<form action="#" type="post">
+	<form action="" method="post">
 	<input type="hidden" value="<?php echo $total ?>" name="total">
 	<button type="submit" class="btn btn-primary btn-block">Confirm</button>
 	<br>
@@ -159,7 +205,7 @@ else{
 
 </div>
 
-<?php } ?>
+
 </div>
 
 
