@@ -131,7 +131,7 @@ get_header();
     <h2>Budget Phones</h2>
 
     <?php 
-    $args = array('post_type' => 'mobile', 'meta_key' => 'price', 'orderby' => 'meta_value', 'order' => 'ASC', 'posts_per_page' => '8');
+    $args = array('post_type' => 'mobile', 'meta_key' => 'price', 'orderby' => 'meta_value_num', 'order' => 'ASC', 'posts_per_page' => '8');
     $loop = new WP_Query($args);
 
     if ($loop -> have_posts()): ?>

@@ -21,10 +21,10 @@ get_header();
 	$sort = $_POST['sort'];
 
 	if ($sort === "Price Descending"){
-		$args = array('post_type' => 'mobile', 'meta_key' => 'price', 'orderby' => 'meta_value', 'order' => 'DESC');
+		$args = array('post_type' => 'mobile', 'meta_key' => 'price', 'orderby' => 'meta_value_num', 'order' => 'DESC');
 	}
 	else if ($sort === "Price Ascending"){
-		$args = array('post_type' => 'mobile', 'meta_key' => 'price', 'orderby' => 'meta_value', 'order' => 'ASC');
+		$args = array('post_type' => 'mobile', 'meta_key' => 'price', 'orderby' => 'meta_value_num', 'order' => 'ASC');
 	}
 	else if ($sort === 'Oldest First'){
 		$args = array('post_type' => 'mobile', 'orderby' => 'date', 'order' => 'ASC');
