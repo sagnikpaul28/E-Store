@@ -65,88 +65,90 @@ if ($_POST['phone-name'] && $_POST['phone-price'] && $_POST['phone-id']){
 	if (have_posts()):
 		while(have_posts()): the_post(); ?>
 
-        <h2><?php the_title(); ?></h2>
-
-            <h3>Rs <?php echo get_post_meta(get_the_ID(), 'Price', true); ?></h3>
+        <h1 style="font-stretch: extra-expanded; font-weight: bolder;"><?php the_title(); ?></h1>
 
 		
-		<br>
+    		<br>
+            <div class="row">
 
-		<div class="col-xs-12 col-md-4">
+        		<div class="col-xs-12 col-md-4" style="position: sticky; position: -webkit-sticky; top: 10vh;">
 
-		<center>
-            <div class="thumbnail">
-                <?php the_post_thumbnail('medium'); ?>
+        		<center>
+                    <div class="thumbnail">
+                        <?php the_post_thumbnail('medium'); ?>
+                    </div>
+
+                <form action="" method="post">
+
+
+                    <?php
+                    if ($_SESSION['username']){
+                    ?>
+                    <input type="hidden" name="phone-name" value="<?php echo get_the_title(); ?>">
+                    <input type="hidden" name="phone-id" value="<?php echo get_the_ID(); ?>">
+                    <input type="hidden" name="phone-price" value="<?php echo get_post_meta(get_the_ID(), 'Price', true); ?>">
+
+                	<button type="submit" class="btn btn-primary btn-block" id="single-submit" >Add To Cart</button>
+
+                    <?php
+                    }else{
+                    ?>
+                    <hr>
+                    <button type="button" class="btn btn-primary btn-block" href="#myModal" data-toggle="modal">Order Now</button>
+                    <?php
+                    }
+                    ?>
+
+                </form>
+                <br>
+                <button type="button" class="btn btn-primary btn-block" onclick="window.location.href = window.location.hostname + '/cart'"">Go To Cart</button>
+                <br>
+            	</center>
+                </div>
+
+                <div class="col-xs-12 col-md-8" style="position: relative;">
+
+                    <div id="single-specifications" style="border: 1px solid #ddd ;padding: 0vmin 2vmin;margin-bottom: 2vmin">
+                        <h1>Rs <?php echo get_post_meta(get_the_ID(), 'Price', true); ?></h1>
+                        <hr>
+                        <h2>Specifications</h2>
+                        <h3>Network</h3>
+                        <h5>Technology: <?php echo get_post_meta(get_the_ID(), 'Technology', true); ?></h5>
+                        <h5>SIM: <?php echo get_post_meta(get_the_ID(), 'Sim', true); ?></h5>
+                        <h3>Display</h3>
+                        <h5>Size: <?php echo get_post_meta(get_the_ID(), 'Size', true); ?></h5>
+                        <h5>SIM: <?php echo get_post_meta(get_the_ID(), 'Resolution', true); ?></h5>
+                        <h3>Platform</h3>
+                        <h5>OS: <?php echo get_post_meta(get_the_ID(), 'OS', true); ?></h5>
+                        <h5>Chipset: <?php echo get_post_meta(get_the_ID(), 'Chipset', true); ?></h5>
+                        <h5>CPU: <?php echo get_post_meta(get_the_ID(), 'CPU', true); ?></h5>
+                        <h3>Memory</h3>
+                        <h5>Card Slot: <?php echo get_post_meta(get_the_ID(), 'Memory Card Slot', true); ?></h5>
+                        <h5>Internal: <?php echo get_post_meta(get_the_ID(), 'Internal Memory', true); ?></h5>
+                        <h3>Camera</h3>
+                        <h5>Primary: <?php echo get_post_meta(get_the_ID(), 'Primary Camera', true); ?></h5>
+                        <h5>Features: <?php echo get_post_meta(get_the_ID(), 'Camera Features', true); ?></h5>
+                        <h5>Secondary: <?php echo get_post_meta(get_the_ID(), 'Secondary Camera', true); ?></h5>
+                        <h3>Battery</h3>
+                        <h5>Capacity: <?php echo get_post_meta(get_the_ID(), 'Battery', true); ?></h5>
+                    </div>
+
+                    <?php 
+                    if (get_the_content()): ?>
+                    <div id="single-descriptions" style="border: 1px solid #ddd ;padding: 0vmin 2vmin;margin-bottom: 2vmin">
+                        <h3>Description</h3> 
+                        <h5><?php the_content(); ?></h5>
+                    </div>
+                    <?php endif; ?>
+
+
+                </div>
             </div>
 
-        <form action="" method="post">
+        <?php endwhile;
 
-
-            <?php
-            if ($_SESSION['username']){
-            ?>
-            <input type="hidden" name="phone-name" value="<?php echo get_the_title(); ?>">
-            <input type="hidden" name="phone-id" value="<?php echo get_the_ID(); ?>">
-            <input type="hidden" name="phone-price" value="<?php echo get_post_meta(get_the_ID(), 'Price', true); ?>">
-
-        	<button type="submit" class="btn btn-primary btn-block" id="single-submit" >Add To Cart</button>
-
-            <?php
-            }else{
-            ?>
-            <hr>
-            <button type="button" class="btn btn-primary btn-block" href="#myModal" data-toggle="modal">Order Now</button>
-            <?php
-            }
-            ?>
-
-        </form>
-        <br>
-        <button type="button" class="btn btn-primary btn-block" onclick="window.location.href = window.location.hostname + '/cart'"">Go To Cart</button>
-        <br>
-    	</center>
-        </div>
-
-        <div class="col-xs-12 col-md-8">
-
-            <div id="single-specifications" style="border: 1px solid #ddd ;padding: 0vmin 2vmin;margin-bottom: 2vmin">
-                <h3>Specifications</h3>
-            <h4>Network</h4>
-            <h6>Technology: <?php echo get_post_meta(get_the_ID(), 'Technology', true); ?></h6>
-            <h6>SIM: <?php echo get_post_meta(get_the_ID(), 'Sim', true); ?></h6>
-            <h4>Display</h4>
-            <h6>Size: <?php echo get_post_meta(get_the_ID(), 'Size', true); ?></h6>
-            <h6>SIM: <?php echo get_post_meta(get_the_ID(), 'Resolution', true); ?></h6>
-            <h4>Platform</h4>
-            <h6>OS: <?php echo get_post_meta(get_the_ID(), 'OS', true); ?></h6>
-            <h6>Chipset: <?php echo get_post_meta(get_the_ID(), 'Chipset', true); ?></h6>
-            <h6>CPU: <?php echo get_post_meta(get_the_ID(), 'CPU', true); ?></h6>
-            <h4>Memory</h4>
-            <h6>Card Slot: <?php echo get_post_meta(get_the_ID(), 'Memory Card Slot', true); ?></h6>
-            <h6>Internal: <?php echo get_post_meta(get_the_ID(), 'Internal Memory', true); ?></h6>
-            <h4>Camera</h4>
-            <h6>Primary: <?php echo get_post_meta(get_the_ID(), 'Primary Camera', true); ?></h6>
-            <h6>Features: <?php echo get_post_meta(get_the_ID(), 'Camera Features', true); ?></h6>
-            <h6>Secondary: <?php echo get_post_meta(get_the_ID(), 'Secondary Camera', true); ?></h6>
-            <h4>Battery</h4>
-            <h6>Capacity: <?php echo get_post_meta(get_the_ID(), 'Battery', true); ?></h6>
-            </div>
-
-            <?php 
-            if (get_the_content()): ?>
-            <div id="single-descriptions" style="border: 1px solid #ddd ;padding: 0vmin 2vmin;margin-bottom: 2vmin">
-                <h3>Description</h3> 
-                <h5><?php the_content(); ?></h5>
-            </div>
-            <?php endif; ?>
-
-
-        </div>
-
-    <?php endwhile;
-
-    endif;
-    ?>
+        endif;
+        ?>
 
 </div>
 

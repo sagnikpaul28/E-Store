@@ -127,16 +127,6 @@ body{
 	cursor: pointer;	
 }
 
-.sidebar-div{
-	border: solid #ddd;
-	border-width: 0.25px 1px;
-	background-color: #fefefe;
-}
-
-.sidebar-div h4{
-	margin: 0;
-}
-
 .checkbox input{
 	background: none;
 }
