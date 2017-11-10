@@ -58,6 +58,19 @@ if ($_POST['phone-name'] && $_POST['phone-price'] && $_POST['phone-id']){
 }
 ?>
 <br><br>
+<style>
+#col1{
+    position: sticky;
+    position: -webkit-sticky;
+    top: 10vh;
+}
+
+@media screen and (max-width: 1000px) {
+    #col1{
+        position: inherit;
+    }
+}
+</style>
 
 <div class="container">
 
@@ -71,7 +84,7 @@ if ($_POST['phone-name'] && $_POST['phone-price'] && $_POST['phone-id']){
     		<br>
             <div class="row">
 
-        		<div class="col-xs-12 col-md-4" style="position: sticky; position: -webkit-sticky; top: 10vh;">
+        		<div class="col-xs-12 col-md-4" id="col1" >
 
         		<center>
                     <div class="thumbnail">
@@ -106,7 +119,7 @@ if ($_POST['phone-name'] && $_POST['phone-price'] && $_POST['phone-id']){
             	</center>
                 </div>
 
-                <div class="col-xs-12 col-md-8" style="position: relative;">
+                <div class="col-xs-12 col-md-8">
 
                     <div id="single-specifications" style="border: 1px solid #ddd ;padding: 0vmin 2vmin;margin-bottom: 2vmin">
                         <h1>Rs <?php echo get_post_meta(get_the_ID(), 'Price', true); ?></h1>
