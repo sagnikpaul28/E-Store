@@ -46,7 +46,7 @@ class widget_searcher extends WP_Widget{
 			foreach($categories as $arr){ 
 			?>
 			<div class="checkbox">
-				<label><input type="checkbox" name="brands" value="<?php echo $arr->slug ?>"> <?php echo $arr->name; ?></label>
+				<label><input type="checkbox" name="brands" value="<?php echo $arr->slug ?>" id="<?php echo $arr->name; ?>"> <?php echo $arr->name; ?></label>
 			</div>
 			<?php } ?>
 			</div>

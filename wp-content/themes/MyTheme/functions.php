@@ -202,3 +202,150 @@ class Walker_Nav_Primary extends Walker_Nav_menu {
 */
     
 }
+
+/*
+===========================================
+Display Posts
+===========================================
+*/
+
+function display_date_descending_order(){
+            
+    $args = array('post_type' => 'mobile', 'orderby' => 'date', 'order' => 'DESC');
+
+    $loop = new WP_Query($args);
+
+    if ($loop -> have_posts()): ?>
+    
+    <div class="row" >
+
+        <?php while($loop -> have_posts()): $loop -> the_post(); ?>
+
+            <a href="<?php the_permalink() ?>">
+                <div class="col-xs-6 col-sm-4 col-md-3 <?php $ca = get_the_category(get_the_ID()); foreach($ca as $c){echo $c->slug; echo " ";} ?>" id="contain" data-namephone="<?php echo get_the_title(); ?>">
+            
+                    <center>
+                        <img src="<?php echo wp_get_attachment_url(get_post_thumbnail_id(get_the_ID())); ?>" id="brands-img-thumbnail">
+                
+                        <?php the_title(sprintf( "<h4 class='title-brands'><a href='%s'>",esc_url(get_permalink())),'</a></h4>'); ?>
+
+                        <h5>Rs <?php echo get_post_meta(get_the_ID(), 'Price', true); ?></h5>
+                    </center>
+                </div>
+                
+            </a>
+
+        <?php endwhile;
+    endif;
+
+    wp_reset_postdata();
+
+}
+
+function display_date_ascending_order(){
+
+    $args = array('post_type' => 'mobile', 'orderby' => 'date', 'order' => 'ASC');
+
+    $loop = new WP_Query($args);
+
+    if ($loop -> have_posts()): ?>
+    
+    <div class="row" >
+
+        <?php while($loop -> have_posts()): $loop -> the_post(); ?>
+
+            <a href="<?php the_permalink() ?>">
+                <div class="col-xs-6 col-sm-4 col-md-3 <?php $ca = get_the_category(get_the_ID()); foreach($ca as $c){echo $c->slug; echo " ";} ?>" id="contain" data-namephone="<?php echo get_the_title(); ?>">
+            
+                    <center>
+                        <img src="<?php echo wp_get_attachment_url(get_post_thumbnail_id(get_the_ID())); ?>" id="brands-img-thumbnail">
+                
+                        <?php the_title(sprintf( "<h4 class='title-brands'><a href='%s'>",esc_url(get_permalink())),'</a></h4>'); ?>
+
+                        <h5>Rs <?php echo get_post_meta(get_the_ID(), 'Price', true); ?></h5>
+                    </center>
+                </div>
+                
+            </a>
+
+        <?php endwhile;
+    endif;
+
+    wp_reset_postdata();
+}
+
+function display_price_ascending_order(){
+
+    $args = array('post_type' => 'mobile', 'meta_key' => 'price', 'orderby' => 'meta_value_num', 'order' => 'ASC');
+
+    $loop = new WP_Query($args);
+
+    if ($loop -> have_posts()): ?>
+    
+    <div class="row" >
+
+        <?php while($loop -> have_posts()): $loop -> the_post(); ?>
+
+            <a href="<?php the_permalink() ?>">
+                <div class="col-xs-6 col-sm-4 col-md-3 <?php $ca = get_the_category(get_the_ID()); foreach($ca as $c){echo $c->slug; echo " ";} ?>" id="contain" data-namephone="<?php echo get_the_title(); ?>">
+            
+                    <center>
+                        <img src="<?php echo wp_get_attachment_url(get_post_thumbnail_id(get_the_ID())); ?>" id="brands-img-thumbnail">
+                
+                        <?php the_title(sprintf( "<h4 class='title-brands'><a href='%s'>",esc_url(get_permalink())),'</a></h4>'); ?>
+
+                        <h5>Rs <?php echo get_post_meta(get_the_ID(), 'Price', true); ?></h5>
+                    </center>
+                </div>
+                
+            </a>
+
+        <?php endwhile;
+    endif;
+
+    wp_reset_postdata();
+}
+
+function display_price_descending_order(){
+
+    $args = array('post_type' => 'mobile', 'meta_key' => 'price', 'orderby' => 'meta_value_num', 'order' => 'DESC');
+
+    $loop = new WP_Query($args);
+
+    if ($loop -> have_posts()): ?>
+    
+    <div class="row" >
+
+        <?php while($loop -> have_posts()): $loop -> the_post(); ?>
+
+            <a href="<?php the_permalink() ?>">
+                <div class="col-xs-6 col-sm-4 col-md-3 <?php $ca = get_the_category(get_the_ID()); foreach($ca as $c){echo $c->slug; echo " ";} ?>" id="contain" data-namephone="<?php echo get_the_title(); ?>">
+            
+                    <center>
+                        <img src="<?php echo wp_get_attachment_url(get_post_thumbnail_id(get_the_ID())); ?>" id="brands-img-thumbnail">
+                
+                        <?php the_title(sprintf( "<h4 class='title-brands'><a href='%s'>",esc_url(get_permalink())),'</a></h4>'); ?>
+
+                        <h5>Rs <?php echo get_post_meta(get_the_ID(), 'Price', true); ?></h5>
+                    </center>
+                </div>
+                
+            </a>
+
+        <?php endwhile;
+    endif;
+
+    wp_reset_postdata();
+}
+
+add_action('wp_ajax_date_descending', 'display_date_descending_order');
+add_action('wp_ajax_nopriv_date_descending', 'display_date_descending_order');
+
+add_action('wp_ajax_date_ascending', 'display_date_ascending_order');
+add_action('wp_ajax_nopriv_date_ascending', 'display_date_ascending_order');
+
+add_action('wp_ajax_price_descending', 'display_price_descending_order');
+add_action('wp_ajax_nopriv_price_descending', 'display_price_descending_order');
+
+add_action('wp_ajax_price_ascending', 'display_price_ascending_order');
+add_action('wp_ajax_nopriv_price_ascending', 'display_price_ascending_order');
