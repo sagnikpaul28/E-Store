@@ -102,20 +102,24 @@ if ($_POST['phone-name'] && $_POST['phone-price'] && $_POST['phone-id']){
                     <input type="hidden" name="phone-price" value="<?php echo get_post_meta(get_the_ID(), 'Price', true); ?>">
 
                 	<button type="submit" class="btn btn-primary btn-block" id="single-submit" >Add To Cart</button>
+                    <br>
+                    <button type="button" class="btn btn-primary btn-block" onclick="window.location.href = window.location.hostname + '/cart'"">Go To Cart</button>
+                    <br>
 
                     <?php
                     }else{
                     ?>
                     <hr>
                     <button type="button" class="btn btn-primary btn-block" href="#myModal" data-toggle="modal">Order Now</button>
+                    <br>
+                    <button type="button" class="btn btn-primary btn-block" href="#myModal" data-toggle="modal">Go To Cart</button>
+                    <br>
                     <?php
                     }
                     ?>
 
                 </form>
-                <br>
-                <button type="button" class="btn btn-primary btn-block" onclick="window.location.href = window.location.hostname + '/cart'"">Go To Cart</button>
-                <br>
+                
             	</center>
                 </div>
 

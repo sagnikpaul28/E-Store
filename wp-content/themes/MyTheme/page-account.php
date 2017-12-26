@@ -93,34 +93,29 @@ if ($_POST['reset']){
 <br><br><br>
 
 <div class="container">
-	<div class="col-xs-4">
-		<h3>Hello,</h3>
-		<h4><?php echo $_SESSION['username']; ?></h4>
-
-		<h5 id="log-out-text"><a href="http://localhost/E-Store/log-out">Not <?php echo $_SESSION['username']; ?>? Log out.</a></h5>
-
+	<div class="col-xs-12 col-sm-4" id="account-info">
+		<h3 id="account-hello">Hello,</h3>
+		<h2 id="account-username"><?php echo $_SESSION['username']; ?></h2>
 		<br>
-		<h5 onclick="PasswordChange()" style="font-weight: bold; cursor: pointer;">Change Password</h5>
-
-		<br><br>
-		<div style="border: 1px solid #ddd; text-align: center; width: 80%;"><h4>My Orders</h4></div>
+		<h4 id="account-subheading"><a href="http://localhost/E-Store/log-out">Not <?php echo $_SESSION['username']; ?>? Log out.</a></h5>
+		<h4 id="account-subheading" onclick="PasswordChange()">Change Password</h5>
 
 	</div>
 
-	<div class="col-xs-8">
+	<div class="col-xs-12 col-sm-8" id="account-div">
 
 
 		<?php if ($err === 0){ ?>
-		<form action="" method="post" style="display: inherit;" id="info">
+		<form action="" method="post" style="display: inherit;" id="info" class="account-form">
 		
 		<?php }else{ ?>
-		<form action="" method="post" style="display: none" id="info">
+		<form action="" method="post" style="display: none" id="info"  class="account-form">
 		
 		<?php } ?>
 		
 		<h3 style="display: inline-block;">Personal Information</h3>
 		
-		<h5 style="display: inline-block;margin-left: 5vw;border: 1px solid #ddd; padding: 1vmin 2vmin;cursor: pointer;" onclick="AtrributeDisable()">Edit</h5>
+		<h5 id="account-edit-button" onclick="AtrributeDisable()">Edit</h5>
 		
 		<div class="form-group">
 			<label>First Name:</label>
@@ -162,27 +157,27 @@ if ($_POST['reset']){
 
 		
 			
-		<form action="" method="post">	
+		<form action="" method="post"  class="account-form">	
 			<br>
 			
 			<div class="form-group">
-				<label style="display:inline-block;float:left;">Old Password:</label>
+				<label id="account-password-fields">Old Password:</label>
 				<?php if ($err === 1){ ?>
-				<h5 style="display: inline-block; color: red; float: right;">Password isn't correct</h5>
+				<h5 id="account-password-fields-incorrect">Password isn't correct</h5>
 				<?php } ?>
 				<input type="password" id="oldpassword" name="oldpassword" class="form-control" required>
 			</div>
 			<div class="form-group">
-				<label style="display:inline-block;float:left;">New Password:</label>
+				<label id="account-password-fields">New Password:</label>
 				<?php if ($err === 3){ ?>
-				<h5 style="display: inline-block; color: red; float: right;">Password is too small</h5>
+				<h5 id="account-password-fields-incorrect">Password is too small</h5>
 				<?php } ?>
 				<input type="password" id="newpassword" name="newpassword" class="form-control" required>
 			</div>
 			<div class="form-group">
-				<label style="display:inline-block;float:left;">ReEnter New Password:</label>
+				<label id="account-password-fields">ReEnter New Password:</label>
 				<?php if ($err === 2){ ?>
-				<h5 style="display: inline-block; color: red; float: right;">Passwords don't match</h5>
+				<h5 id="account-password-fields-incorrect">Passwords don't match</h5>
 				<?php } ?>
 				<input type="password" id="newpassword2" name="newpassword2" class="form-control" required>
 			</div>
@@ -192,9 +187,9 @@ if ($_POST['reset']){
 		<br>
 
 		<?php if ($err !== 0){ ?>
-		<form action="" method="post" id="cancelpasswordchange" style="display: inherit">
+		<form action="" method="post" id="cancelpasswordchange" style="display: inherit"  class="account-form">
 		<?php }else{ ?>
-		<form action="" method="post" id="cancelpasswordchange" style="display: none">
+		<form action="" method="post" id="cancelpasswordchange" style="display: none" class="account-form">
 		<?php } ?>
 
 			<input type="hidden" value="1" name="reset">
@@ -208,12 +203,12 @@ if ($_POST['reset']){
 	<?php 
 	if($_POST['first-name']){ ?>
 
-	<center><h3 style="border: 1px solid #ddd; padding: 2vmin 4vmin; width: 40%;">Changes Saved</h3></center>
+	<center><h3 id="account-submitted">Changes Saved</h3></center>
 
 	<?php 
 	}
 	else if ($_POST['oldpassword'] && $err === 0){ ?>
-	<center><h3 style="border: 1px solid #ddd; padding: 2vmin 4vmin; width: 40%;">Password Changed</h3></center>
+	<center><h3 id="account-submitted">Password Changed</h3></center>
 
 	<?php }
 

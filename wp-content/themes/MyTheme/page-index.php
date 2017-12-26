@@ -44,14 +44,14 @@ get_header();
 <section class="second">
   <br>
   <div class="container">
-    <h2>Featured Phones</h2>
+    <h2 id="home-heading">&nbsp;Featured Phones&nbsp;</h2>
 
     <?php 
     $args = array('post_type' => 'mobile', 'orderby' => 'date', 'order' => 'DESC', 'cat' => '69');
     $loop = new WP_Query($args);
 
     if ($loop -> have_posts()): ?>
-    <div class="row">
+    <div class="row index-row">
       <?php while ($loop -> have_posts()): $loop -> the_post(); ?>
 
       <a href="<?php the_permalink() ?>">
@@ -62,7 +62,7 @@ get_header();
         
             <?php the_title(sprintf( "<h4 class='title-brands'><a href='%s'>",esc_url(get_permalink())),'</a></h4>'); ?>
 
-            <h5>Rs <?php echo get_post_meta(get_the_ID(), 'Price', true); ?></h5>
+            <h5 class="title-price">Rs <?php echo get_post_meta(get_the_ID(), 'Price', true); ?></h5>
           </center>
         </div>
       </a>
@@ -79,21 +79,21 @@ get_header();
 
 <section class="third">
 
-  <div style="height: 30vh; width: 100vw; background-attachment: fixed; background-position: center; background-image: url(<?php echo wp_get_attachment_url('338'); ?>)">
+  <div id="home-break-section" style="background-image: url(<?php echo wp_get_attachment_url('338'); ?>)">
   </div>
 </section>
 
 <section class="fourth">
   <br>
   <div class="container">
-    <h2>Our Latest Arrivals</h2>
+    <h2 id="home-heading">&nbsp;Our Latest Arrivals&nbsp;</h2>
 
     <?php 
     $args = array('post_type' => 'mobile', 'orderby' => 'date', 'order' => 'DESC', 'posts_per_page' => '8');
     $loop = new WP_Query($args);
 
     if ($loop -> have_posts()): ?>
-    <div class="row">
+    <div class="row index-row">
       <?php while ($loop -> have_posts()): $loop -> the_post(); ?>
 
       <a href="<?php the_permalink() ?>">
@@ -104,7 +104,7 @@ get_header();
         
             <?php the_title(sprintf( "<h4 class='title-brands'><a href='%s'>",esc_url(get_permalink())),'</a></h4>'); ?>
 
-            <h5>Rs <?php echo get_post_meta(get_the_ID(), 'Price', true); ?></h5>
+            <h5 class="title-price">Rs <?php echo get_post_meta(get_the_ID(), 'Price', true); ?></h5>
           </center>
         </div>
       </a>
@@ -121,21 +121,21 @@ get_header();
 
 <section class="fifth">
 
-  <div style="height: 30vh; width: 100vw; background-attachment: fixed; background-position: center; background-image: url(<?php echo wp_get_attachment_url('338'); ?>)">
+  <div id="home-break-section" style="background-image: url(<?php echo wp_get_attachment_url('338'); ?>)">
   </div>
 </section>
 
 <section class="sixth">
   <br>
   <div class="container">
-    <h2>Budget Phones</h2>
+    <h2 id="home-heading">&nbsp;Budget Phones&nbsp;</h2>
 
     <?php 
     $args = array('post_type' => 'mobile', 'meta_key' => 'price', 'orderby' => 'meta_value_num', 'order' => 'ASC', 'posts_per_page' => '8');
     $loop = new WP_Query($args);
 
     if ($loop -> have_posts()): ?>
-    <div class="row">
+    <div class="row index-row">
       <?php while ($loop -> have_posts()): $loop -> the_post(); ?>
 
       <a href="<?php the_permalink() ?>">
@@ -146,7 +146,7 @@ get_header();
         
             <?php the_title(sprintf( "<h4 class='title-brands'><a href='%s'>",esc_url(get_permalink())),'</a></h4>'); ?>
 
-            <h5>Rs <?php echo get_post_meta(get_the_ID(), 'Price', true); ?></h5>
+            <h5 class="title-price">Rs <?php echo get_post_meta(get_the_ID(), 'Price', true); ?></h5>
           </center>
         </div>
       </a>
@@ -163,14 +163,14 @@ get_header();
 
 <section class="seventh">
 
-  <div style="height: 30vh; width: 100vw; background-attachment: fixed; background-position: center; background-image: url(<?php echo wp_get_attachment_url('338'); ?>)">
+  <div id="home-break-section" style="background-image: url(<?php echo wp_get_attachment_url('338'); ?>)">
   </div>
 </section>
 
 <section class="eight">
   <br>
   <div class="container">
-	<h2>Shop By your Favourite Brands</h2><br>
+	<h2 id="home-heading">&nbsp;Shop By Your Favourite Brands&nbsp;</h2><br>
 
 		<?php 
 

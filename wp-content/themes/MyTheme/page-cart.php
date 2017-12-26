@@ -129,18 +129,22 @@ $count = $wpdb->num_rows;
 $total = 0;
 
 if ($query==null){
-	echo "<br><br><br>";
-	echo "<h2>Cart is Empty</h2>";
-	echo "<h2>Go back to our <a href='".get_home_url()."'>Home Page</a></h2>";
+	echo "<br><br><br><center>";
+	echo "<h1 id='cart-title-empty'>Cart is Empty</h1>";
+	echo "<h1 id='cart-title-empty'>Go back to our <a href='".get_home_url()."'>Home Page</a></h1>";
+	echo "</center>";
 }
 else{
 	echo "<br><br><br>";
-	echo "<h4>My Cart (".$count.")</h4>";
+	echo "<h1 id='cart-title'>My Cart (".$count.")</h1>";
+	echo "<br>";
 } ?>
 
+<?php
+if ($query!=null){ ?>
 <div class="col-xs-12 col-sm-9 col-md-8">
 <?php foreach($query as $array){ ?>
-<div class="row" style="border: 1px solid #ccc">
+<div class="row cart-row">
 	
 
 	<?php 
@@ -157,23 +161,23 @@ else{
 	</div>
 
 	<div class="col-xs-12 col-sm-7 col-md-8">
-		<h3><?php echo $array->phone_name ;?></h3>
-		<h4>Price: <?php echo $price*$number; ?></h4>
+		<h3 id="cart-item"><?php echo $array->phone_name ;?></h3>
+		<h4 id="cart-item">Price: <?php echo $price*$number; ?></h4>
 
-		<form action="" method="post" style="display: inline-block;">
+		<form action="" method="post" id="cart-individual-post-control-form">
 			<input type="hidden" value="<?php echo $id ?>" name="increase_id">
 			<input type="hidden" value="<?php echo $number ?>" name="number">
 
-			<button type="submit" style="background: none;border-radius: 50%;border: 2px solid #ddd">+</button>
+			<button type="submit" id="cart-button-plus">+</button>
 		</form>
 
-		<div style="display: inline-block;border: 1px solid #ccc; padding: 1vmin 2vmin;margin: 0 2vmin;"> <?php echo $number; ?></div>
+		<div id="cart-display-number-items"> <?php echo $number; ?></div>
 
-		<form  action="" method="post" style="display: inline-block;">
+		<form  action="" method="post" id="cart-individual-post-control-form">
 			<input type="hidden" value="<?php echo $id ?>" name="decrease_id">
 			<input type="hidden" value="<?php echo $number ?>" name="number">
 
-			<button type="submit" style="background: none;border-radius: 50%;border: 2px solid #ddd;width: 100%; height: auto; padding-left: 1.25vmin;padding-right: 1.25vmin;">-</button>
+			<button type="submit" id="cart-button-minus">-</button>
 		</form>
 
 		<br>
@@ -181,7 +185,7 @@ else{
 		<form action="" method="post" style="display: block;">
 			<input type="hidden" value="<?php echo $id ?>" name="delete_id">
 
-			<button type="submit" name="delete" style="background: none; border:none;">Remove From Cart</button>
+			<h3><button type="submit" name="delete" id="cart-remove-item">Remove From Cart</button></h3>
 		</form>
 
 	</center>
@@ -191,7 +195,7 @@ else{
 
 </div>
 
-<div class="col-xs-12 col-sm-3 col-md-4" style="border: 1px solid #ccc">
+<div class="col-xs-12 col-sm-3 col-md-4 cart-total">
 
 	<h3>Total: <?php echo $total; ?> </h3>
 	<form action="" method="post">
@@ -204,6 +208,8 @@ else{
 	<br>
 
 </div>
+
+<?php } ?>
 
 
 </div>

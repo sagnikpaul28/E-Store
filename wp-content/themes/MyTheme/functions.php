@@ -217,7 +217,7 @@ function display_date_descending_order(){
 
     if ($loop -> have_posts()): ?>
     
-    <div class="row" >
+    <div class="row shop-row" >
 
         <?php while($loop -> have_posts()): $loop -> the_post(); ?>
 
@@ -250,7 +250,7 @@ function display_date_ascending_order(){
 
     if ($loop -> have_posts()): ?>
     
-    <div class="row" >
+    <div class="row shop-row" >
 
         <?php while($loop -> have_posts()): $loop -> the_post(); ?>
 
@@ -282,7 +282,7 @@ function display_price_ascending_order(){
 
     if ($loop -> have_posts()): ?>
     
-    <div class="row" >
+    <div class="row shop-row" >
 
         <?php while($loop -> have_posts()): $loop -> the_post(); ?>
 
@@ -314,7 +314,7 @@ function display_price_descending_order(){
 
     if ($loop -> have_posts()): ?>
     
-    <div class="row" >
+    <div class="row shop-row" >
 
         <?php while($loop -> have_posts()): $loop -> the_post(); ?>
 

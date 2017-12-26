@@ -1,3 +1,9 @@
+/*
+========================================================================================
+Account Page Attributes Enable or Disable Depending Upon User Inputs
+========================================================================================
+*/
+
 function AtrributeDisable(){
 	document.getElementById('first-name').removeAttribute('disabled');
 	document.getElementById('last-name').removeAttribute('disabled');
@@ -28,6 +34,12 @@ function PasswordChange(){
 	document.getElementById('cancelpasswordchange').style.display = "inherit";
 
 }
+
+/*
+===============================================================
+Ajax Requests to Sort Posts
+===============================================================
+*/
 
 function fetch_date_descending_order(){
 	jQuery.post('/E-Store/wp-admin/admin-ajax.php', {'action' : 'date_descending_order'}, function(response){
@@ -64,6 +76,12 @@ function fetch_price_ascending_order(){
 
 	});
 }
+
+/*
+=====================================================================
+Display mobile phones according to checkboxes or search query
+=====================================================================
+*/
 
 var changeResultFunction = function(){
 

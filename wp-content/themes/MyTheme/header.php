@@ -3,6 +3,8 @@
     <head>
         <meta charset=" <?php  bloginfo('charset'); ?>">
         <title> <?php bloginfo('name') ?> <?php wp_title('  |  '); ?>  </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Arvo|Risque|Play|Francois+One|Kalam:700|Neucha" rel="stylesheet">
         
         <meta name='description' content="<?php bloginfo('description'); ?>">
         
