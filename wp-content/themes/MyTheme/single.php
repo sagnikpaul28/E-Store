@@ -58,19 +58,6 @@ if ($_POST['phone-name'] && $_POST['phone-price'] && $_POST['phone-id']){
 }
 ?>
 <br><br>
-<style>
-#col1{
-    position: sticky;
-    position: -webkit-sticky;
-    top: 10vh;
-}
-
-@media screen and (max-width: 1000px) {
-    #col1{
-        position: inherit;
-    }
-}
-</style>
 
 <div class="container">
 
@@ -78,13 +65,13 @@ if ($_POST['phone-name'] && $_POST['phone-price'] && $_POST['phone-id']){
 	if (have_posts()):
 		while(have_posts()): the_post(); ?>
 
-        <h1 style="font-stretch: extra-expanded; font-weight: bolder;"><?php the_title(); ?></h1>
+        <h1 id="single-page-title"><?php the_title(); ?></h1>
 
 		
     		<br>
             <div class="row">
 
-        		<div class="col-xs-12 col-md-4" id="col1" >
+        		<div class="col-xs-12 col-md-4 single-col" >
 
         		<center>
                     <div class="thumbnail">
@@ -125,10 +112,9 @@ if ($_POST['phone-name'] && $_POST['phone-price'] && $_POST['phone-id']){
 
                 <div class="col-xs-12 col-md-8">
 
-                    <div id="single-specifications" style="border: 1px solid #ddd ;padding: 0vmin 2vmin;margin-bottom: 2vmin">
+                    <div id="single-specifications">
                         <h1>Rs <?php echo get_post_meta(get_the_ID(), 'Price', true); ?></h1>
                         <hr>
-                        <h2>Specifications</h2>
                         <h3>Network</h3>
                         <h5>Technology: <?php echo get_post_meta(get_the_ID(), 'Technology', true); ?></h5>
                         <h5>SIM: <?php echo get_post_meta(get_the_ID(), 'Sim', true); ?></h5>
@@ -152,7 +138,7 @@ if ($_POST['phone-name'] && $_POST['phone-price'] && $_POST['phone-id']){
 
                     <?php 
                     if (get_the_content()): ?>
-                    <div id="single-descriptions" style="border: 1px solid #ddd ;padding: 0vmin 2vmin;margin-bottom: 2vmin">
+                    <div id="single-descriptions">
                         <h3>Description</h3> 
                         <h5><?php the_content(); ?></h5>
                     </div>

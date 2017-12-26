@@ -198,6 +198,7 @@ if ($query!=null){ ?>
 <div class="col-xs-12 col-sm-3 col-md-4 cart-total">
 
 	<h3>Total: <?php echo $total; ?> </h3>
+	<hr>
 	<form action="" method="post">
 	<input type="hidden" value="<?php echo $total ?>" name="total">
 	<button type="submit" class="btn btn-primary btn-block">Confirm</button>
