@@ -338,14 +338,14 @@ function display_price_descending_order(){
     wp_reset_postdata();
 }
 
-add_action('wp_ajax_date_descending', 'display_date_descending_order');
-add_action('wp_ajax_nopriv_date_descending', 'display_date_descending_order');
+add_action('wp_ajax_date_descending_order', 'display_date_descending_order');
+add_action('wp_ajax_nopriv_date_descending_order', 'display_date_descending_order');
 
-add_action('wp_ajax_date_ascending', 'display_date_ascending_order');
-add_action('wp_ajax_nopriv_date_ascending', 'display_date_ascending_order');
+add_action('wp_ajax_date_ascending_order', 'display_date_ascending_order');
+add_action('wp_ajax_nopriv_date_ascending_order', 'display_date_ascending_order');
 
-add_action('wp_ajax_price_descending', 'display_price_descending_order');
-add_action('wp_ajax_nopriv_price_descending', 'display_price_descending_order');
+add_action('wp_ajax_price_descending_order', 'display_price_descending_order');
+add_action('wp_ajax_nopriv_price_descending_order', 'display_price_descending_order');
 
-add_action('wp_ajax_price_ascending', 'display_price_ascending_order');
-add_action('wp_ajax_nopriv_price_ascending', 'display_price_ascending_order');
+add_action('wp_ajax_price_ascending_order', 'display_price_ascending_order');
+add_action('wp_ajax_nopriv_price_ascending_order', 'display_price_ascending_order');

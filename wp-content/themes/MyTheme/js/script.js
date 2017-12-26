@@ -29,27 +29,39 @@ function PasswordChange(){
 
 }
 
-function fetch_date_descending(){
-	jQuery.post('/E-Store/wp-admin/admin-ajax.php', {'action' : 'date_descending'}, function(response){
+function fetch_date_descending_order(){
+	jQuery.post('/E-Store/wp-admin/admin-ajax.php', {'action' : 'date_descending_order'}, function(response){
+		response=jQuery(response);
 		jQuery('#content').html(response);
+		response.exit;
+	});
+	
+}
+
+function fetch_date_ascending_order(){
+	jQuery.post('/E-Store/wp-admin/admin-ajax.php', {'action' : 'date_ascending_order'}, function(response){
+		response=jQuery(response);
+		jQuery('#content').html(response);
+		response.exit;
+		
 	});
 }
 
-function fetch_date_ascending(){
-	jQuery.post('/E-Store/wp-admin/admin-ajax.php', {'action' : 'date_ascending'}, function(response){
+function fetch_price_descending_order(){
+	jQuery.post('/E-Store/wp-admin/admin-ajax.php', {'action' : 'price_descending_order'}, function(response){
+		response=jQuery(response);
 		jQuery('#content').html(response);
+		response.exit;
+		
 	});
 }
 
-function fetch_price_descending(){
-	jQuery.post('/E-Store/wp-admin/admin-ajax.php', {'action' : 'price_descending'}, function(response){
+function fetch_price_ascending_order(){
+	jQuery.post('/E-Store/wp-admin/admin-ajax.php', {'action' : 'price_ascending_order'}, function(response){
+		response=jQuery(response);
 		jQuery('#content').html(response);
-	});
-}
+		response.exit;
 
-function fetch_price_ascending(){
-	jQuery.post('/E-Store/wp-admin/admin-ajax.php', {'action' : 'price_ascending'}, function(response){
-		jQuery('#content').html(response);
 	});
 }
 
@@ -213,6 +225,19 @@ var changeResultFunction = function(){
 				jQuery(this).hide();
 			}
 		})
+	}
+	var count=0;
+	var counthidden = 0;
+	jQuery('div[id="contain"]').each(function(){
+		count++;
+	});
+	jQuery('div[id="contain"]:hidden').each(function(){
+		counthidden++;
+	});
+	if (count-counthidden===0){
+		jQuery('#not_found').show();
+	}else{
+		jQuery('#not_found').hide();
 	}
 };
 jQuery('input[type=checkbox]').click(changeResultFunction);

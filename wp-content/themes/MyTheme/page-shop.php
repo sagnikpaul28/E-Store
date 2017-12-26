@@ -23,16 +23,20 @@ get_header();
 		<div class="sort-div" style="display: inline-block">
 		<h3 class="brand-sort" style="margin-left: 2vw;margin-right: 2vw;">Sort by </h3>
 		<div style="display: inline-block;">
-		<h4 style="display: inline-block; cursor: pointer; margin-left: 2vw;" class="sort1" onclick="fetch_date_ascending()">Date Ascending</h4>
-		<h4 style="display: inline-block; cursor: pointer; margin-left: 2vw;" class="sort2" onclick="fetch_date_descending()">Date Descending</h4>
-		<h4 style="display: inline-block; cursor: pointer; margin-left: 2vw;" class="sort3" onclick="fetch_price_ascending()">Price Ascending</h4>
-		<h4 style="display: inline-block; cursor: pointer; margin-left: 2vw;" class="sort4" onclick="fetch_price_descending()">Price Descending</h4>
+		<h4 style="display: inline-block; cursor: pointer; margin-left: 2vw;" class="sort1" onclick="fetch_date_ascending_order()">Date Ascending</h4>
+		<h4 style="display: inline-block; cursor: pointer; margin-left: 2vw;" class="sort2" onclick="fetch_date_descending_order()">Date Descending</h4>
+		<h4 style="display: inline-block; cursor: pointer; margin-left: 2vw;" class="sort3" onclick="fetch_price_ascending_order()">Price Ascending</h4>
+		<h4 style="display: inline-block; cursor: pointer; margin-left: 2vw;" class="sort4" onclick="fetch_price_descending_order()">Price Descending</h4>
 		</div>
 		</div>
 
-		
-		<div id="content">
-			
+		<div style="padding: 0;margin: 0;">
+			<center>
+			<div id="content">
+				
+			</div>
+			<h1 id='not_found' style="margin-top: 10vh;">There are no Items to show</h1>
+			</center>
 		</div>
 
 
@@ -46,7 +50,7 @@ get_header();
 
 <script>
 	jQuery(document).ready(function(){
-		fetch_date_descending();
+		fetch_date_descending_order();
 
 		<?php
 			if (isset($_POST['brands'])){ 
