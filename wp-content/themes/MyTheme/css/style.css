@@ -1,5 +1,6 @@
 body{
 	overflow-x: hidden;
+	overflow-y: hidden;
 }
 .navbar{
 	margin: 0;
@@ -26,6 +27,23 @@ body{
 .navbar-toggle span{
 	background-color: lightseagreen;
 }
+.loader{
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	background-color: black;
+	z-index: 10000;
+	padding-top: 30vh;
+}
+.loader h1{
+	width: 100%;
+	font-family: 'Mukta Malar', sans-serif;
+	font-weight: bolder;
+	text-align: center;
+	color: lightseagreen;
+}
 
 /*Home Page*/
 
@@ -50,6 +68,7 @@ body{
 	width: 100vw;
 	background-attachment: fixed;
 	background-position: center;
+	margin-top: 5vmin;
 }
 .index-row{
 	display: -webkit-box;
@@ -107,7 +126,7 @@ h5.title-price{
 }
 @media screen and (max-width: 768px){
 	#contain{
-		box-shadow: 0 0 5px lightseagreen;
+		box-shadow: 0 0 2px lightseagreen;
 		border: 0.1px dotted lightseagreen;
 		margin-bottom: 0;
 	}
@@ -252,10 +271,11 @@ h1#cart-title-empty{
 		margin-top: 5vmin;
 	}
 }
-#cart-individual-post-control-form{
+#cart-individual-control-form1, #cart-individual-control-form2{
 	display: inline-block;
 }
 #cart-button-plus{
+	display: inline-block;
 	background: rgba(0, 0, 0, 0.8);
 	border-radius: 50%;
 	border: 1px solid lightseagreen;
@@ -264,13 +284,12 @@ h1#cart-title-empty{
 	padding: 5px 14px;
 }
 #cart-button-minus{
+	display: inline-block;
 	background: rgba(0, 0, 0, 0.8);
 	border-radius: 50%;
 	border: 1px solid lightseagreen;
 	color: lightseagreen;
 	font-size: 1.5em;
-	width: 100%; 
-	height: auto; 
 	padding: 5px 16px;
 }
 #cart-display-number-items{
@@ -290,11 +309,30 @@ h1#cart-title-empty{
 	padding: 3vmin 8vmin; 
 	background: rgba(0, 0, 0, 0.8);
 }
+@media screen and (max-width: 992px){
+	#cart-remove-item{
+		font-size: 60%;
+		margin-top: 5vmin;
+	}
+	#cart-display-number-items{
+		font-size: 1.5em;
+	}
+	#cart-button-minus{
+		font-size: 1.2em;
+		padding: 0 8px;
+	}
+	#cart-button-plus{
+		font-size: 1.2em;
+		padding: 0 6px;
+	}
+
+}
 @media screen and (max-width: 768px){
 	#cart-remove-item{
 		margin-top: 5vmin;
 	}
 }
+
 
 
 /*Contact Us*/
@@ -324,7 +362,7 @@ h1#cart-title-empty{
 }
 #brands-img-thumbnail{
 	width: 15vmax;
-	height: auto;
+	height: 18vmax;
 }
 @media screen and (min-width: 768px){
 	#contain{
@@ -419,7 +457,8 @@ h1#cart-title-empty{
 	#shop-filter-cancel, #shop-sorter-cancel{
 		border: 1px solid lightseagreen;
 		font-family: 'Roboto Slab', serif;
-		color: lightseagreen;
+		background-color: lightseagreen;
+		color: white;
 	}
 }
 @media screen and (min-width: 992px){
@@ -642,4 +681,230 @@ h3#account-hello{
 	box-shadow: 0 0 5vmin #aaa;
 	margin-top: 5vmin;
 	margin-bottom: 5vmin;
+}
+#about-us ol{
+	padding: inherit;
+}
+@media screen and (max-width: 768px){
+	#about-us h3{
+		text-align: left;
+		padding: 2vmin 0;
+	}
+}
+
+/*Payment Success/ Failure*/
+#payment{
+	color: lightseagreen;
+	text-align: center;
+}
+
+/*Contact Form Submit*/
+#contact-form-submit{
+	color: lightseagreen;
+	text-align: center;
+}
+
+
+/*Loader*/
+.cssload-loader {
+	position: relative;
+	left: calc(50% - 84px);
+	width: 168px;
+	height: 168px;
+	border-radius: 50%;
+		-o-border-radius: 50%;
+		-ms-border-radius: 50%;
+		-webkit-border-radius: 50%;
+		-moz-border-radius: 50%;
+	perspective: 2100px;
+}
+
+.cssload-inner {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+		-o-box-sizing: border-box;
+		-ms-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	border-radius: 50%;
+		-o-border-radius: 50%;
+		-ms-border-radius: 50%;
+		-webkit-border-radius: 50%;
+		-moz-border-radius: 50%;	
+}
+
+.cssload-inner.cssload-one {
+	left: 0%;
+	top: 0%;
+	animation: cssload-rotate-one 0.6s linear infinite;
+		-o-animation: cssload-rotate-one 0.6s linear infinite;
+		-ms-animation: cssload-rotate-one 0.6s linear infinite;
+		-webkit-animation: cssload-rotate-one 0.6s linear infinite;
+		-moz-animation: cssload-rotate-one 0.6s linear infinite;
+	border-bottom: 8px solid rgb(0,238,255);
+}
+
+.cssload-inner.cssload-two {
+	right: 0%;
+	top: 0%;
+	animation: cssload-rotate-two 0.6s linear infinite;
+		-o-animation: cssload-rotate-two 0.6s linear infinite;
+		-ms-animation: cssload-rotate-two 0.6s linear infinite;
+		-webkit-animation: cssload-rotate-two 0.6s linear infinite;
+		-moz-animation: cssload-rotate-two 0.6s linear infinite;
+	border-right: 8px solid rgb(0,146,156);
+}
+
+.cssload-inner.cssload-three {
+	right: 0%;
+	bottom: 0%;
+	animation: cssload-rotate-three 0.6s linear infinite;
+		-o-animation: cssload-rotate-three 0.6s linear infinite;
+		-ms-animation: cssload-rotate-three 0.6s linear infinite;
+		-webkit-animation: cssload-rotate-three 0.6s linear infinite;
+		-moz-animation: cssload-rotate-three 0.6s linear infinite;
+	border-top: 8px solid rgb(0,96,99);
+}
+
+
+
+
+
+
+
+@keyframes cssload-rotate-one {
+	0% {
+		transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+	}
+	100% {
+		transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+	}
+}
+
+@-o-keyframes cssload-rotate-one {
+	0% {
+		-o-transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+	}
+	100% {
+		-o-transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+	}
+}
+
+@-ms-keyframes cssload-rotate-one {
+	0% {
+		-ms-transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+	}
+	100% {
+		-ms-transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+	}
+}
+
+@-webkit-keyframes cssload-rotate-one {
+	0% {
+		-webkit-transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+	}
+	100% {
+		-webkit-transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+	}
+}
+
+@-moz-keyframes cssload-rotate-one {
+	0% {
+		-moz-transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+	}
+	100% {
+		-moz-transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+	}
+}
+
+@keyframes cssload-rotate-two {
+	0% {
+		transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+	}
+	100% {
+		transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+	}
+}
+
+@-o-keyframes cssload-rotate-two {
+	0% {
+		-o-transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+	}
+	100% {
+		-o-transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+	}
+}
+
+@-ms-keyframes cssload-rotate-two {
+	0% {
+		-ms-transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+	}
+	100% {
+		-ms-transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+	}
+}
+
+@-webkit-keyframes cssload-rotate-two {
+	0% {
+		-webkit-transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+	}
+	100% {
+		-webkit-transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+	}
+}
+
+@-moz-keyframes cssload-rotate-two {
+	0% {
+		-moz-transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+	}
+	100% {
+		-moz-transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+	}
+}
+
+@keyframes cssload-rotate-three {
+	0% {
+		transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+	}
+	100% {
+		transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+	}
+}
+
+@-o-keyframes cssload-rotate-three {
+	0% {
+		-o-transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+	}
+	100% {
+		-o-transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+	}
+}
+
+@-ms-keyframes cssload-rotate-three {
+	0% {
+		-ms-transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+	}
+	100% {
+		-ms-transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+	}
+}
+
+@-webkit-keyframes cssload-rotate-three {
+	0% {
+		-webkit-transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+	}
+	100% {
+		-webkit-transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+	}
+}
+
+@-moz-keyframes cssload-rotate-three {
+	0% {
+		-moz-transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+	}
+	100% {
+		-moz-transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+	}
 }

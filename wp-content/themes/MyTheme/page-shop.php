@@ -29,10 +29,11 @@ get_header();
 			    <button class="btn btn-block btn-default" id="shop-filter-cancel" onclick="hide_filter_bar()">Done</button>
 			</div>
 			<div class="col-xs-12 shop-mobile-only-sort-sidebar">
-				<h4 onclick="fetch_date_ascending_order()">Date Ascending</h4><hr>
-				<h4 onclick="fetch_date_descending_order()">Date Descending</h4><hr>
-				<h4 onclick="fetch_price_ascending_order()">Price Ascending</h4><hr>
-				<h4 onclick="fetch_price_descending_order()">Price Descending</h4>
+				<h4 onclick="fetch_price_ascending_order()">Price Low to High</h4><hr>
+				<h4 onclick="fetch_price_descending_order()">Price High to Low</h4><hr>
+				<h4 onclick="fetch_date_ascending_order()">Old to New</h4><hr>
+				<h4 onclick="fetch_date_descending_order()">New to Old</h4>
+				
 				<button class="btn btn-block btn-default" id="shop-sorter-cancel" onclick="hide_sorting_bar()">Done</button>
 			</div>
 		</div>
@@ -43,10 +44,11 @@ get_header();
 		<div class="sort-div">
 		<h3 class="brand-sort" style="margin-left: 2vw;margin-right: 2vw;">Sort by </h3>
 		<div style="display: inline-block;">
-		<h4 style="display: inline-block; cursor: pointer; margin-left: 2vw;" class="sort1" onclick="fetch_date_ascending_order()">Date Ascending</h4>
-		<h4 style="display: inline-block; cursor: pointer; margin-left: 2vw;" class="sort2" onclick="fetch_date_descending_order()">Date Descending</h4>
-		<h4 style="display: inline-block; cursor: pointer; margin-left: 2vw;" class="sort3" onclick="fetch_price_ascending_order()">Price Ascending</h4>
-		<h4 style="display: inline-block; cursor: pointer; margin-left: 2vw;" class="sort4" onclick="fetch_price_descending_order()">Price Descending</h4>
+			<h4 style="display: inline-block; cursor: pointer; margin-left: 2vw;" class="sort3" onclick="fetch_price_ascending_order()">Price Low to High</h4>
+			<h4 style="display: inline-block; cursor: pointer; margin-left: 2vw;" class="sort4" onclick="fetch_price_descending_order()">Price High to Low</h4>
+			<h4 style="display: inline-block; cursor: pointer; margin-left: 2vw;" class="sort1" onclick="fetch_date_ascending_order()">Oldest First</h4>
+			<h4 style="display: inline-block; cursor: pointer; margin-left: 2vw;" class="sort2" onclick="fetch_date_descending_order()">Newest First</h4>
+		
 		</div>
 		</div>
 
@@ -68,47 +70,25 @@ get_header();
 <?php get_footer(); ?>
 
 <script>
-	jQuery('.shop-mobile-only-search-sidebar').hide();
-	jQuery('.shop-mobile-only-sort-sidebar').hide();
+	
+jQuery(document).ready(function(){
+	
+	fetch_date_descending_order();
 
-	function show_filter_bar(){
-		jQuery('.shop-mobile-only-search-sidebar').show(100);
-		jQuery('#mobile-filter').css({'background-color':'lightseagreen', 'box-shadow':'none', 'color':'white'});
-	}
-	function hide_filter_bar(){
-		jQuery('.shop-mobile-only-search-sidebar').hide(100);
-		jQuery('#mobile-filter').css({'background-color':'rgb(255, 255, 255)', 'box-shadow':'0 0 1px #aaa', 'color':'lightseagreen'});
-	}
-	function show_sorting_bar(){
-		jQuery('.shop-mobile-only-sort-sidebar').show(100);
-		jQuery('#mobile-sort').css({'background-color':'lightseagreen', 'box-shadow':'none', 'color':'white'});
-	}
-	function hide_sorting_bar(){
-		jQuery('.shop-mobile-only-sort-sidebar').hide(100);
-		jQuery('#mobile-sort').css({'background-color':'rgb(255, 255, 255)', 'box-shadow':'0 0 1px #aaa', 'color':'lightseagreen'});
-	}
+	<?php
+		if (isset($_POST['brands'])){ 
+			$x = $_POST['brands'][0];
+	?>
+	var x = "<?php echo $x; ?>" ;
+	document.getElementById(x).checked=true;
+	
+	var i = setInterval(changeResultFunction, 0);
+	setTimeout(function(){
+		clearInterval(i);
+	}, 5000);
 
-	jQuery(document).ready(function(){
-		
-		fetch_date_descending_order();
+	<?php } ?>
+});
 
-		<?php
-			if (isset($_POST['brands'])){ 
-				$x = $_POST['brands'][0];
-		?>
-		var x = "<?php echo $x; ?>" ;
-		document.getElementById(x).checked=true;
-		
-		var i = setInterval(changeResultFunction, 0);
-		setTimeout(function(){
-			clearInterval(i);
-		}, 5000);
-
-		<?php } ?>
-	});
-
-	jQuery('#content').ready(function(){
-		setTimeout(function(){ jQuery('#loading').hide(200); }, 2000);
-	});
 
 </script>

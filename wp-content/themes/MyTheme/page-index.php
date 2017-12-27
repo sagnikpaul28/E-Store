@@ -10,19 +10,19 @@ get_header();
 <section class="first">
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
-    		<div class="item active" style="background-image: url(<?php echo wp_get_attachment_url(57); ?>);background-position: top; background-attachment: fixed; background-size: cover; background-repeat:no-repeat;">
+    		<div class="item active" style="background-image: url(<?php echo wp_get_attachment_url(443); ?>);background-position: top; background-attachment: fixed; background-size: cover; background-repeat:no-repeat;">
       			
     		</div>
 
-    		<div class="item" style="background-image: url(<?php echo wp_get_attachment_url(115); ?>);background-position: center; background-attachment: fixed; background-size: cover; background-repeat:no-repeat;">
+    		<div class="item" style="background-image: url(<?php echo wp_get_attachment_url(441); ?>);background-position: center; background-attachment: fixed; background-size: cover; background-repeat:no-repeat;">
       			
     		</div>
 
-    		<div class="item" style="background-image: url(<?php echo wp_get_attachment_url(119); ?>);background-position: top; background-attachment: fixed; background-size: cover; background-repeat:no-repeat;">
+    		<div class="item" style="background-image: url(<?php echo wp_get_attachment_url(442); ?>);background-position: top; background-attachment: fixed; background-size: cover; background-repeat:no-repeat;">
       			
     		</div>
 
-    		<div class="item" style="background-image: url(<?php echo wp_get_attachment_url(60); ?>);background-position: top; background-attachment: fixed; background-size: cover; background-repeat:no-repeat;">
+    		<div class="item" style="background-image: url(<?php echo wp_get_attachment_url(440); ?>);background-position: top; background-attachment: fixed; background-size: cover; background-repeat:no-repeat;">
       			
     		</div>
 
@@ -73,7 +73,6 @@ get_header();
     </div> 
 
   </div>
-  <hr>
 
 </section>
 
@@ -115,7 +114,6 @@ get_header();
     </div> 
 
   </div>
-  <hr>
 
 </section>
 
@@ -157,12 +155,10 @@ get_header();
     </div> 
 
   </div>
-  <hr>
 
 </section>
 
 <section class="seventh">
-
   <div id="home-break-section" style="background-image: url(<?php echo wp_get_attachment_url('338'); ?>)">
   </div>
 </section>

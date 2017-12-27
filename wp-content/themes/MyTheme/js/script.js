@@ -1,4 +1,14 @@
 /*
+===================================================
+Loader
+===================================================
+*/
+jQuery(window).load(function(){
+	jQuery('.loader').fadeOut(500);
+	jQuery('body').css({'overflow-y':'inherit'});
+});
+
+/*
 ========================================================================================
 Account Page Attributes Enable or Disable Depending Upon User Inputs
 ========================================================================================
@@ -259,3 +269,28 @@ var changeResultFunction = function(){
 	}
 };
 jQuery('input[type=checkbox]').click(changeResultFunction);
+
+/*
+=================================
+Shop page
+=================================
+*/
+jQuery('.shop-mobile-only-search-sidebar').hide();
+jQuery('.shop-mobile-only-sort-sidebar').hide();
+
+function show_filter_bar(){
+	jQuery('.shop-mobile-only-search-sidebar').show(100);
+	jQuery('#mobile-filter').css({'background-color':'lightseagreen', 'box-shadow':'none', 'color':'white'});
+}
+function hide_filter_bar(){
+	jQuery('.shop-mobile-only-search-sidebar').hide(100);
+	jQuery('#mobile-filter').css({'background-color':'rgb(255, 255, 255)', 'box-shadow':'0 0 1px #aaa', 'color':'lightseagreen'});
+}
+function show_sorting_bar(){
+	jQuery('.shop-mobile-only-sort-sidebar').show(100);
+	jQuery('#mobile-sort').css({'background-color':'lightseagreen', 'box-shadow':'none', 'color':'white'});
+}
+function hide_sorting_bar(){
+	jQuery('.shop-mobile-only-sort-sidebar').hide(100);
+	jQuery('#mobile-sort').css({'background-color':'rgb(255, 255, 255)', 'box-shadow':'0 0 1px #aaa', 'color':'lightseagreen'});
+}

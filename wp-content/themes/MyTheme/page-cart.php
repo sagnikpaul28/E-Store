@@ -142,7 +142,7 @@ else{
 
 <?php
 if ($query!=null){ ?>
-<div class="col-xs-12 col-sm-9 col-md-8">
+<div class="col-xs-12 col-sm-8">
 <?php foreach($query as $array){ ?>
 <div class="row cart-row">
 	
@@ -164,7 +164,7 @@ if ($query!=null){ ?>
 		<h3 id="cart-item"><?php echo $array->phone_name ;?></h3>
 		<h4 id="cart-item">Price: <?php echo $price*$number; ?></h4>
 
-		<form action="" method="post" id="cart-individual-post-control-form">
+		<form action="" method="post" id="cart-individual-control-form1">
 			<input type="hidden" value="<?php echo $id ?>" name="increase_id">
 			<input type="hidden" value="<?php echo $number ?>" name="number">
 
@@ -173,7 +173,7 @@ if ($query!=null){ ?>
 
 		<div id="cart-display-number-items"> <?php echo $number; ?></div>
 
-		<form  action="" method="post" id="cart-individual-post-control-form">
+		<form  action="" method="post" id="cart-individual-control-form2">
 			<input type="hidden" value="<?php echo $id ?>" name="decrease_id">
 			<input type="hidden" value="<?php echo $number ?>" name="number">
 
@@ -195,7 +195,7 @@ if ($query!=null){ ?>
 
 </div>
 
-<div class="col-xs-12 col-sm-3 col-md-4 cart-total">
+<div class="col-xs-12 col-sm-4 cart-total">
 
 	<h3>Total: <?php echo $total; ?> </h3>
 	<hr>

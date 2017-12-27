@@ -47,3 +47,13 @@
     	</nav>
 
         <?php include "login_modal.php" ?>
+
+
+        <div class="loader">
+            <div class="cssload-loader">
+                <div class="cssload-inner cssload-one"></div>
+                <div class="cssload-inner cssload-two"></div>
+                <div class="cssload-inner cssload-three"></div>
+            </div>
+            <h1>Loading...</h1>
+        </div>
