@@ -96,9 +96,9 @@ if ($_POST['reset']){
 	<div class="col-xs-12 col-sm-4" id="account-info">
 		<h3 id="account-hello">Hello,</h3>
 		<h2 id="account-username"><?php echo $_SESSION['username']; ?></h2>
-		<br>
-		<h4 id="account-subheading"><a href="http://localhost/E-Store/log-out">Not <?php echo $_SESSION['username']; ?>? Log out.</a></h5>
-		<h4 id="account-subheading" onclick="PasswordChange()">Change Password</h5>
+		<hr>
+		<h4 id="account-subheading"><a href="http://localhost/E-Store/log-out">Not <?php echo $_SESSION['username']; ?>? Log out.</a></h4>
+		<h4 id="account-subheading" onclick="PasswordChange()">Change Password</h4>
 
 	</div>
 

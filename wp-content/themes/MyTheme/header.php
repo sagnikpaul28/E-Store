@@ -4,7 +4,7 @@
         <meta charset=" <?php  bloginfo('charset'); ?>">
         <title> <?php bloginfo('name') ?> <?php wp_title('  |  '); ?>  </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://fonts.googleapis.com/css?family=Arvo|Risque|Play|Francois+One|Kalam:700|Neucha" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:700i|Mukta+Malar:800|Roboto+Slab" rel="stylesheet">
         
         <meta name='description' content="<?php bloginfo('description'); ?>">
         
@@ -12,7 +12,7 @@
     </head>
     <body>
 
-    	<nav class="navbar navbar-inverse navbar-fixed-top">
+    	<nav class="navbar navbar-fixed-top">
     		<div class="container-fluid">
     			<div class="navbar-header">
     				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">

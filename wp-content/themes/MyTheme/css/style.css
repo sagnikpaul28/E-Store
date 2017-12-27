@@ -4,13 +4,28 @@ body{
 .navbar{
 	margin: 0;
 	padding: 0;
+	border-color: lightseagreen;
+	background-color: rgba(0, 0, 0, 0.8);
 }
 .row, .col{
 	margin: 0;
 	padding: 0;
 }
-
-
+.navbar-brand, .menu-item a{
+	color: lightseagreen;
+	font-family: 'Roboto Slab', serif;
+	letter-spacing: 0.1em;
+}
+.nav>li>a:focus, .nav>li>a:hover, .navbar-brand:hover{
+	background-color: lightseagreen;
+	color: white;
+}
+.navbar-toggle{
+	border: 1px solid lightseagreen;
+}
+.navbar-toggle span{
+	background-color: lightseagreen;
+}
 
 /*Home Page*/
 
@@ -36,8 +51,6 @@ body{
 	background-attachment: fixed;
 	background-position: center;
 }
-
-
 .index-row{
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -52,19 +65,31 @@ h2#home-heading{
 	text-decoration: underline;
 	text-underline-position: under;
 	text-decoration-style: dashed;
-	font-family: 'Risque', cursive;
+	font-family: 'Mukta Malar', sans-serif;
 	line-height: 1.5em;
+	color: lightseagreen;
 }
 h4.title-brands{
-	font-family: 'Arvo', serif;
+	color: lightseagreen;
+	font-family: 'Roboto Slab', serif;
 	font-weight: bold;
 }
 h5.title-price{
-	font-family: 'Arvo', serif;
+	color: lightseagreen;
+	font-family: 'Roboto Slab', serif;
 	font-weight: bolder;
 }
-
-
+.title-brands a{
+	text-decoration: none;
+	color: lightseagreen;
+}
+#contain:hover .title-brands a{
+	color: black;
+}
+.title-brands{
+	text-align: center;
+	margin-top: 3vmin;
+}
 .brands{
 	transition: 0.1s;
 	border-radius: 10px;
@@ -80,16 +105,15 @@ h5.title-price{
 	transform: scale(1.1);
 	transition: 0.1s;
 }
+@media screen and (max-width: 768px){
+	#contain{
+		box-shadow: 0 0 5px lightseagreen;
+		border: 0.1px dotted lightseagreen;
+		margin-bottom: 0;
+	}
+}
 
 
-.title-brands a{
-	text-decoration: none;
-}
-.title-brands{
-	text-align: center;
-	color: black;
-	margin-top: 3vmin;
-}
 
 
 /*Single Page*/
@@ -112,24 +136,51 @@ h5.title-price{
     position: -webkit-sticky;
     top: 10vh;
 }
+.single-col button{
+	background: rgba(0, 0, 0, 0.7);
+	color: lightseagreen;
+	border: 1px solid lightseagreen;
+	font-family: 'Montserrat', sans-serif;
+}
 @media screen and (max-width: 992px) {
     .single-col{
         position: inherit;
     }
 }
 #single-page-title{
+	margin-top: 5vmin;
+	color: lightseagreen;
+	font-family: 'Mukta Malar', sans-serif;
 	font-stretch: extra-expanded; 
 	font-weight: bolder;
 }
 #single-specifications{
-	box-shadow: 0 0 5px #aaa;
+	color: lightseagreen;
+	font-family: 'Montserrat', sans-serif;
+	box-shadow: 0 0 5px lightseagreen;
 	padding: 1vmin 3vmin;
-	margin-bottom: 2vmin
+	margin-bottom: 2vmin;
+	border: 1px solid lightseagreen;
+}
+#single-specifications h3{
+	text-align: left;
+	text-decoration: underline;
 }
 #single-descriptions{
-	box-shadow: 0 0 5px #aaa ;
+	font-family: 'Montserrat', sans-serif;
+	color: lightseagreen;
+	box-shadow: 0 0 5px lightseagreen ;
 	padding: 2vmin;
-	margin-bottom: 2vmin
+	margin-bottom: 2vmin;
+	border: 1px solid lightseagreen;
+}
+#single-descriptions h3{
+	text-align: left;
+	text-decoration: underline;
+}
+.thumbnail{
+	border: 1px solid lightseagreen;
+	box-shadow: 0 0 5px lightseagreen ;
 }
 
 
@@ -145,69 +196,104 @@ h5.title-price{
 /*Cart Page*/
 #cart-img-thumbnail{
 	width: 12vmax;
-	height: 14vmax;
+	height: auto;
+}
+@media screen and (max-width: 768px){
+	#cart-img-thumbnail{
+		width: 20vmax;
+		height: auto;
+	}
 }
 .cart-row{
-	background-color: rgb(250, 250, 250);
+	background-color: rgba(32, 178, 170, 0.2);
+	border: 1px solid lightseagreen;
 	padding: 5vmin 0;
 	margin-bottom: 5vmin;
-	box-shadow: 0 0 2vmin #ddd;
+	box-shadow: 0 0 1vmin lightseagreen;
 }
 
 .cart-total{
-	background-color: rgb(250, 250, 250);
-	box-shadow: 0 0 2vmin #ddd;
+	background-color: rgba(32, 178, 170, 0.2);
+	border: 1px solid lightseagreen;
+	box-shadow: 0 0 1vmin lightseagreen;
 	margin-bottom: 5vmin;
 	padding-top: 15px;
 }
+.cart-total button{
+	background: rgba(0, 0, 0, 0.8);
+	border: 1px solid lightseagreen;
+	color: lightseagreen;
+	font-family: 'Montserrat', sans-serif;
+}
+.cart-total h3{
+	color: lightseagreen;
+	text-shadow: 0 0 1px #000;
+}
 h1#cart-title{
+	color: lightseagreen;
 	letter-spacing: 2px;
 	text-decoration: underline;
 	text-underline-position: under;
 	text-decoration-style: dashed;
-	font-family: 'Risque', cursive;
+	font-family: 'Mukta Malar', sans-serif;
 }
 h1#cart-title-empty{
+	color: lightseagreen;
 	letter-spacing: 2px;
-	font-family: 'Risque', cursive;
+	font-family: 'Mukta Malar', sans-serif;
 }
 #cart-item{
-	font-family: 'Play', sans-serif;
-	text-shadow: 1px 1px 5px #FFF;
+	font-family: 'Montserrat', sans-serif;
+	color: lightseagreen;
+	text-shadow: 0 0 2px #000;
+}
+@media screen and (max-width: 768px){
+	#cart-item{
+		margin-top: 5vmin;
+	}
 }
 #cart-individual-post-control-form{
 	display: inline-block;
 }
 #cart-button-plus{
-	background: rgb(252, 252, 252);
+	background: rgba(0, 0, 0, 0.8);
 	border-radius: 50%;
-	box-shadow: 0 0 5px #aaa;
-	border:none;
+	border: 1px solid lightseagreen;
+	color: lightseagreen;
+	font-size: 1.5em;
+	padding: 5px 14px;
 }
 #cart-button-minus{
-	background: rgb(252, 252, 252);
+	background: rgba(0, 0, 0, 0.8);
 	border-radius: 50%;
-	box-shadow: 0 0 5px #aaa;
+	border: 1px solid lightseagreen;
+	color: lightseagreen;
+	font-size: 1.5em;
 	width: 100%; 
 	height: auto; 
-	padding-left: 8px;
-	padding-right: 8px;
-	border: none;
+	padding: 5px 16px;
 }
 #cart-display-number-items{
+	font-family: 'Montserrat', sans-serif;
 	display: inline-block;
-	border: none;
-	box-shadow: 0 0 5px #ddd; 
-	padding: 1vmin 2vmin;
+	background: rgba(0, 0, 0, 0.8);
+	border: 1px solid lightseagreen;
+	color: lightseagreen;
+	font-size: 2em;
+	padding: 1vmin 5vmin;
 	margin: 0 2vmin;
-	background-color: rgb(252, 252, 252);
 }
 #cart-remove-item{
-	border:none;
-	font-family: 'Francois One', sans-serif; 
-	box-shadow: 0 0 5px #aaa; 
+	color: lightseagreen;
+	font-family: 'Montserrat', sans-serif;
+	border: 2px solid lightseagreen;
 	padding: 3vmin 8vmin; 
-	background-color: rgb(252, 252, 252);
+	background: rgba(0, 0, 0, 0.8);
+}
+@media screen and (max-width: 768px){
+	#cart-remove-item{
+		margin-top: 5vmin;
+	}
 }
 
 
@@ -232,25 +318,40 @@ h1#cart-title-empty{
 }
 
 /*Shop Page*/
+#not_found{
+	width: 90%;
+	color: lightseagreen;
+}
 #brands-img-thumbnail{
 	width: 15vmax;
-	height: 18vmax;
+	height: auto;
+}
+@media screen and (min-width: 768px){
+	#contain{
+		margin-bottom: 5px;
+	}	
+}
+#shop-search-bar, #shop-search-bar input{
+	border-radius: 5px;
+	color: lightseagreen;
 }
 #contain{
-	margin-bottom: 5px;
 	padding: 3vmin 1vmin;
 }
 #contain:hover{
-	box-shadow: 0px 0px 2px 2px #ddd;
+	background-color: rgba(32, 178, 170, 0.2);
+	box-shadow: 0px 0px 2px 2px #20b2aa;
 }
 #contain h5{
 	text-align: center;
 }
 #contain:hover h5{
-	color: blue;
+	color: black;
 	cursor: default;
 }
 .brand-sort{
+	font-family: 'Montserrat', sans-serif;
+	color: lightseagreen;
 	display: inline-block;
 	text-align: right;
 	padding: 0 2vmin;
@@ -264,6 +365,7 @@ h1#cart-title-empty{
 		display: none;
 	}
 	#shop-search-bar{
+		margin-top: 5vmin;
 		margin-bottom: 5vmin;
 	}
 	.shop-main-content .sort-div{
@@ -289,12 +391,13 @@ h1#cart-title-empty{
 		text-align: center;
 	}
 	#shop-mobile-view-only h3{
+		color: lightseagreen;
 		margin-top: 2vmin;
 		padding: 2vmin 0;
 		cursor: pointer;
 		width: 100%;
-		box-shadow: 0 0 2px #aaa;
-		border: none;
+		box-shadow: 0 0 1px #aaa;
+		border: 1px solid lightseagreen;
 	}
 	#shop-mobile-view-only .row::after{
 		display: none;
@@ -303,7 +406,7 @@ h1#cart-title-empty{
 		margin-top: 10px;
 		margin-bottom: 10px;
 		padding: 2vmin;
-		box-shadow: 0 0 10px #aaa;
+		box-shadow: 0 0 1vmin lightseagreen;
 	}
 	.shop-mobile-only-sort-sidebar h4{
 		width: 100%;
@@ -313,42 +416,70 @@ h1#cart-title-empty{
 		margin-top: 5px;
 		margin-bottom: 5px;
 	}
-
+	#shop-filter-cancel, #shop-sorter-cancel{
+		border: 1px solid lightseagreen;
+		font-family: 'Roboto Slab', serif;
+		color: lightseagreen;
+	}
 }
 @media screen and (min-width: 992px){
+	#sideBar{
+		box-shadow: 0 0 1vmin lightseagreen;
+		border: 1px solid lightseagreen; 
+		margin-top: 4vh; 
+		padding-top: 2vmin;
+	}
 	.shop-main-content .sort-div{
 		display: inline-block;
 	}
 	#shop-mobile-view-only{
 		display: none;
 	}
+	#shop-search-bar{
+		border: 1px solid lightseagreen;
+	}
+}
+.sidebar-div h3{
+	font-family: 'Montserrat', sans-serif;
+	color: lightseagreen;
+}
+.sidebar-div label, input{
+	font-family: 'Roboto Slab', serif;
+	color: lightseagreen;
 }
 
 
 /*Account Page*/
 h2#account-username{
-	font-family: 'Kalam', cursive;
+	text-align: left;
+	color: lightseagreen;
+	font-family: 'Montserrat', sans-serif;
 	margin-top: 0;
 }
 h3#account-hello{
+	text-align: left;
+	color:lightseagreen;
 	margin-bottom: 0;
-	font-family: 'Kalam', cursive;
+	font-family: 'Montserrat', sans-serif;
 }
 #account-subheading{
-	color: brown;
-	text-shadow: 1px 1px 2px #aaa;
+	color: lightseagreen;
+	text-shadow: 0 0 1px black;
 	cursor: pointer;
 	font-weight: bold;
-	font-family: 'Neucha', cursive;
+	font-family: 'Roboto Slab', serif;
 	letter-spacing: 0.2em;
 	font-weight: bolder;
+	text-align: left;
 }
 #account-subheading a{
 	text-decoration: none;
-	color: red;
+	color: lightseagreen;
 }
 #account-div{
-	box-shadow: 0 0 10vmin #ddd;
+	background-color: rgba(32, 178, 170, 0.2);
+	border: 1px solid lightseagreen;
+	box-shadow: 0 0 5vmin #aaa;
 	padding: 5vmin;
 	padding-top: 2vmin;
 	margin-bottom: 5vmin;
@@ -360,18 +491,36 @@ h3#account-hello{
 	border-radius: 5px;
 	display: inline-block;
 	margin-left: 5vw;
-	border: 1px solid #ddd; 
 	padding: 2vmin 3vmin;
 	cursor: pointer;
 }
 .account-form label{
-	font-family: 'Risque', cursive;
+	color: lightseagreen;
+	font-family: 'Roboto Slab', serif;
 }
 .account-form input,button{
-	font-family: 'Arvo', serif;
+	color: lightseagreen;
+	font-family: 'Roboto Slab', serif;
 }
 .account-form h3{
-	font-family: 'Arvo', serif;
+	color: lightseagreen;
+	padding-top: 1vmin;
+	font-family: 'Roboto Slab', serif;
+}
+.account-form h5{
+	float: right;
+}
+.account-form button{
+	background-color: rgba(0, 0, 0, 0.7);
+	color: lightseagreen;
+	font-weight: bolder;
+}
+@media screen and (max-width: 768px){
+	.account-form h5{
+		border: 1px solid lightseagreen;
+		color: lightseagreen;
+		float: unset;
+	}
 }
 #account-password-fields{
 	display:inline-block;
@@ -383,22 +532,114 @@ h3#account-hello{
 	float: right;
 }
 #account-submitted{
-	border: 1px solid #ddd; 
-	padding: 2vmin 4vmin; 
-	width: 40%;
+	color: lightseagreen; 
+	margin: 2vmin 4vmin; 
+	width: 80%;
+	margin-bottom: 10vh;
 }
+
+/*Login Modal*/
+.login-modal-button{
+	background: rgba(0, 0, 0, 0.8);
+	border: 1px solid lightseagreen;
+	color: lightseagreen;
+}
+.modal-content{
+	background-color: rgba(255, 255, 255, 0.9);
+	border: 1px solid lightseagreen;
+}
+
 
 /*Sign Up*/
 #sign-up-div{
-	border: 1px #ddd solid;
+	color: lightseagreen;
+	border: 1px lightseagreen solid;
 	border-radius: 5px;
+	box-shadow: 0 0 5px lightseagreen;
 }
 #sign-up-div form label{
-	font-family: 'Risque', cursive;
+	font-family: 'Montserrat', sans-serif;
 }
 #sign-up-div form input,button{
-	font-family: 'Arvo', serif;
+	color: lightseagreen;
+	font-family: 'Montserrat', sans-serif;
 }
-#sign-up-div h3,p{
-	font-family: 'Arvo', serif;
+#sign-up-div p{
+	font-family: 'Montserrat', sans-serif;
+}
+#sign-up-div h3{
+	font-family: 'Mukta Malar', sans-serif;
+}
+#sign-up-div button{
+	background: rgba(0, 0, 0, 0.8);
+	border: 1px solid lightseagreen;
+	color: lightseagreen;
+}
+@media screen and (max-width: 768px){
+	#sign-up-div h3{
+		padding-top: 5vmin;
+	}
+}
+
+/*Error Page*/
+#error_heading{
+	color: lightseagreen;
+	font-family: 'Montserrat', sans-serif;
+	width: 80%;
+	margin-left: 10vw;
+	text-align: center;
+	margin-top: 20vh;
+}
+
+/*Contact Us*/
+#contact-us-div h3, h4, h5{
+	font-family: 'Montserrat', sans-serif;
+}
+#contact-us-div h3, h4, h5, form label,input{
+	color: lightseagreen;
+}
+#contact-us-div .form-control{
+	color: lightseagreen;
+	border-color: lightseagreen;
+}
+#contact-us-div button{
+	background: rgba(0,0,0,0.8);
+	border-color: lightseagreen;
+	border-width: 1px;
+	color: lightseagreen;
+}
+#contact-us-icon img{
+	opacity: 0.7;
+	background-color: lightseagreen;
+	border-radius: 10%;
+}
+@media screen and (max-width: 768px){
+	#contact-us-icon{
+		width: 22%;
+	}
+}
+@media screen and (min-width:768px){
+	#contact-us-social{
+		margin-top: 25vh;
+	}
+}
+
+/*About Us*/
+#about-us ol, p{
+	color: lightseagreen;
+	font-family: 'Montserrat', sans-serif;
+}
+#about-us h3{
+	color: lightseagreen;
+	font-family: 'Mukta Malar', sans-serif;
+	text-decoration: underline;
+}
+#about-us{
+	background-color: rgba(32, 178, 170, 0.1);
+	padding: 2vmin;
+	border-radius: 10px;
+	border: 1px solid lightseagreen;
+	box-shadow: 0 0 5vmin #aaa;
+	margin-top: 5vmin;
+	margin-bottom: 5vmin;
 }

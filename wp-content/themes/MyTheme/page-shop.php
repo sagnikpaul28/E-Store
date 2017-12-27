@@ -24,10 +24,6 @@ get_header();
 				</div>
 			</div>
 			<div class="col-xs-12 shop-mobile-only-search-sidebar">
-				<div class="sidebar-div">
-			    	<h3 style="box-shadow: none;">Filters</h3>
-			    	<hr style="margin-top: 0;margin-bottom: 20px;">
-			    </div>
 
 			    <?php dynamic_sidebar('sidebar-1'); ?>
 			    <button class="btn btn-block btn-default" id="shop-filter-cancel" onclick="hide_filter_bar()">Done</button>
@@ -77,19 +73,19 @@ get_header();
 
 	function show_filter_bar(){
 		jQuery('.shop-mobile-only-search-sidebar').show(100);
-		jQuery('#mobile-filter').css({'background-color':'rgb(240, 240, 240)', 'box-shadow':'none'});
+		jQuery('#mobile-filter').css({'background-color':'lightseagreen', 'box-shadow':'none', 'color':'white'});
 	}
 	function hide_filter_bar(){
 		jQuery('.shop-mobile-only-search-sidebar').hide(100);
-		jQuery('#mobile-filter').css({'background-color':'rgb(255, 255, 255)', 'box-shadow':'0 0 2px #aaa'});
+		jQuery('#mobile-filter').css({'background-color':'rgb(255, 255, 255)', 'box-shadow':'0 0 1px #aaa', 'color':'lightseagreen'});
 	}
 	function show_sorting_bar(){
 		jQuery('.shop-mobile-only-sort-sidebar').show(100);
-		jQuery('#mobile-sort').css({'background-color':'rgb(240, 240, 240)', 'box-shadow':'none'});
+		jQuery('#mobile-sort').css({'background-color':'lightseagreen', 'box-shadow':'none', 'color':'white'});
 	}
 	function hide_sorting_bar(){
 		jQuery('.shop-mobile-only-sort-sidebar').hide(100);
-		jQuery('#mobile-sort').css({'background-color':'rgb(255, 255, 255)', 'box-shadow':'0 0 2px #aaa'});
+		jQuery('#mobile-sort').css({'background-color':'rgb(255, 255, 255)', 'box-shadow':'0 0 1px #aaa', 'color':'lightseagreen'});
 	}
 
 	jQuery(document).ready(function(){

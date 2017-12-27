@@ -56,7 +56,7 @@ if (isset($_GET['err1'])){
 					</div>
 					<input type="hidden" name="login" value="Yes">
 					
-					<button type="submit" onsubmit="return false" class="btn btn-primary btn-block">Login</button>
+					<button type="submit" onsubmit="return false" class="btn btn-primary btn-block login-modal-button">Login</button>
 				</form>
 				<br>
 				<p><a href="#">Forgot Password</a></p>

@@ -17,6 +17,7 @@ if (isset($_GET['err'])){
 	<br>
 	<div class="col-xs-10 col-xs-offset-1 col-md-5 col-md-offset-5" id="sign-up-div">
 		<h3>Create Account</h3>
+		<hr>
 		<form action="http://localhost/E-Store/sign-up-script" method="post">
 			<div class="form-group">
 				<label for="name">First Name:</label>
