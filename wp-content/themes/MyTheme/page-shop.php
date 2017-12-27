@@ -88,7 +88,9 @@ jQuery(document).ready(function(){
 	}, 5000);
 
 	<?php } ?>
+
 });
+
 
 
 </script>
