@@ -4,8 +4,11 @@ Loader
 ===================================================
 */
 jQuery(window).load(function(){
-	jQuery('.loader').fadeOut(500);
-	jQuery('body').css({'overflow-y':'inherit'});
+	var x = window.location.href;
+		if (x.indexOf('/shop')==-1){
+		jQuery('.loader').fadeOut(500);
+		jQuery('body').css({'overflow-y':'inherit'});
+	}
 });
 
 /*
@@ -52,38 +55,50 @@ Ajax Requests to Sort Posts
 */
 
 function fetch_date_descending_order(){
+	jQuery('.loader').show();
+	jQuery('body').css({'overflow-y' : 'hidden'});
 	jQuery.post('/E-Store/wp-admin/admin-ajax.php', {'action' : 'date_descending_order'}, function(response){
 		response=jQuery(response);
 		jQuery('#content').html(response);
 		response.exit;
-	});
-	
+		jQuery('.loader').fadeOut(500);
+		jQuery('body').css({'overflow-y':'inherit'});
+	});	
 }
 
 function fetch_date_ascending_order(){
+	jQuery('.loader').show();
+	jQuery('body').css({'overflow-y' : 'hidden'});
 	jQuery.post('/E-Store/wp-admin/admin-ajax.php', {'action' : 'date_ascending_order'}, function(response){
 		response=jQuery(response);
 		jQuery('#content').html(response);
 		response.exit;
-		
+		jQuery('.loader').fadeOut(500);
+		jQuery('body').css({'overflow-y':'inherit'});
 	});
 }
 
 function fetch_price_descending_order(){
+	jQuery('.loader').show();
+	jQuery('body').css({'overflow-y' : 'hidden'});
 	jQuery.post('/E-Store/wp-admin/admin-ajax.php', {'action' : 'price_descending_order'}, function(response){
 		response=jQuery(response);
 		jQuery('#content').html(response);
 		response.exit;
-		
+		jQuery('.loader').fadeOut(500);
+		jQuery('body').css({'overflow-y':'inherit'});
 	});
 }
 
 function fetch_price_ascending_order(){
+	jQuery('.loader').show();
+	jQuery('body').css({'overflow-y' : 'hidden'});
 	jQuery.post('/E-Store/wp-admin/admin-ajax.php', {'action' : 'price_ascending_order'}, function(response){
 		response=jQuery(response);
 		jQuery('#content').html(response);
 		response.exit;
-
+		jQuery('.loader').fadeOut(500);
+		jQuery('body').css({'overflow-y':'inherit'});
 	});
 }
 

@@ -64,6 +64,7 @@ get_header();
 	</div>
 
 </div>
+<br><br>
 
 
 
@@ -72,6 +73,7 @@ get_header();
 <script>
 	
 jQuery(document).ready(function(){
+	jQuery('.shop-mobile-only-search-sidebar').show();
 	
 	fetch_date_descending_order();
 
@@ -79,6 +81,7 @@ jQuery(document).ready(function(){
 		if (isset($_POST['brands'])){ 
 			$x = $_POST['brands'][0];
 	?>
+	
 	var x = "<?php echo $x; ?>" ;
 	document.getElementById(x).checked=true;
 	
@@ -86,6 +89,8 @@ jQuery(document).ready(function(){
 	setTimeout(function(){
 		clearInterval(i);
 	}, 5000);
+
+	jQuery('.shop-mobile-only-search-sidebar').hide();
 
 	<?php } ?>
 
