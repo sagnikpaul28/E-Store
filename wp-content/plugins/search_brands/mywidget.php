@@ -36,6 +36,10 @@ class widget_searcher extends WP_Widget{
 	public function widget($args, $instance){
 		?>
 
+			<!--
+			Brands
+			-->
+
 			<div class="sidebar-div" style="padding: 1vmin 2vmin">
 			<h4>Brands</h4>
 			
@@ -50,6 +54,10 @@ class widget_searcher extends WP_Widget{
 			</div>
 			<?php } ?>
 			</div>
+
+			<!--
+			Price
+			-->
 
 			<div class="sidebar-div" style="padding: 1vmin 2vmin">
 			<h4>Price</h4>
@@ -66,6 +74,10 @@ class widget_searcher extends WP_Widget{
 			<?php } ?>
 			</div>
 
+			<!--
+			Battery Capacity
+			-->
+
 			<div class="sidebar-div" style="padding: 1vmin 2vmin">
 			<h4>Battery Capacity</h4>
 			
@@ -81,6 +93,9 @@ class widget_searcher extends WP_Widget{
 			<?php } ?>
 			</div>
 
+			<!--
+			Internal Storage
+			-->
 
 			<div class="sidebar-div" style="padding: 1vmin 2vmin">
 			<h4>Internal Storage</h4>
@@ -97,6 +112,9 @@ class widget_searcher extends WP_Widget{
 			<?php } ?>
 			</div>
 
+			<!--
+			Primary Camera
+			-->
 
 			<div class="sidebar-div" style="padding: 1vmin 2vmin">
 			<h4>Primary Camera</h4>
@@ -113,6 +131,10 @@ class widget_searcher extends WP_Widget{
 			<?php } ?>
 			</div>
 
+			<!--
+			Ram
+			-->
+
 			<div class="sidebar-div" style="padding: 1vmin 2vmin">
 			<h4>RAM</h4>
 			
@@ -127,6 +149,10 @@ class widget_searcher extends WP_Widget{
 			</div>
 			<?php } ?>
 			</div>
+
+			<!--
+			Screen Size
+			-->
 
 			<div class="sidebar-div" style="padding: 1vmin 2vmin">
 			<h4>Screen Size</h4>

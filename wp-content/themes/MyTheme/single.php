@@ -90,7 +90,7 @@ if ($_POST['phone-name'] && $_POST['phone-price'] && $_POST['phone-id']){
 
                 	<button type="submit" class="btn btn-primary btn-block" id="single-submit" >Add To Cart</button>
                     <br>
-                    <button type="button" class="btn btn-primary btn-block" onclick="window.location.href = window.location.hostname + '/cart'"">Go To Cart</button>
+                    <button type="button" class="btn btn-primary btn-block" onclick="window.location.href = 'http://localhost/E-Store/cart'">Go To Cart</button>
                     <br>
 
                     <?php

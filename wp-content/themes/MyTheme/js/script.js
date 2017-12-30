@@ -61,6 +61,7 @@ function fetch_date_descending_order(){
 		response=jQuery(response);
 		jQuery('#content').html(response);
 		response.exit;
+		changeResultFunction();
 		jQuery('.loader').fadeOut(500);
 		jQuery('body').css({'overflow-y':'inherit'});
 	});	
@@ -73,6 +74,7 @@ function fetch_date_ascending_order(){
 		response=jQuery(response);
 		jQuery('#content').html(response);
 		response.exit;
+		changeResultFunction();
 		jQuery('.loader').fadeOut(500);
 		jQuery('body').css({'overflow-y':'inherit'});
 	});
@@ -85,6 +87,7 @@ function fetch_price_descending_order(){
 		response=jQuery(response);
 		jQuery('#content').html(response);
 		response.exit;
+		changeResultFunction();
 		jQuery('.loader').fadeOut(500);
 		jQuery('body').css({'overflow-y':'inherit'});
 	});
@@ -97,6 +100,7 @@ function fetch_price_ascending_order(){
 		response=jQuery(response);
 		jQuery('#content').html(response);
 		response.exit;
+		changeResultFunction();
 		jQuery('.loader').fadeOut(500);
 		jQuery('body').css({'overflow-y':'inherit'});
 	});

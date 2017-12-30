@@ -34,6 +34,7 @@ if($mac_provided == $mac_calculated){
 
     $payment_id = $data['payment_id'];
     $payment_request_id = $data['payment_request_id'];
+    $total = $data['amount'];
         
     $wpdb->insert(
         'instapayments',
@@ -56,6 +57,104 @@ if($mac_provided == $mac_calculated){
     $username = "username_".$query->username;
 
     $wpdb->query("TRUNCATE TABLE ".$username.";");
+    $order_no = "Order No ".$payment_id;
+    
+    $wpdb->insert(
+        'wp_posts',
+        array(
+            'post_date' => date("Y-m-d H:i:s"),
+            'post_date_gmt' => date("Y-m-d H:i:s"),
+            'post_title' => $order_no,
+            'post_type' => 'orders'
+        ),
+        array(
+            '%s',
+            '%s',
+            '%s',
+            '%s'
+        )
+    );
+
+    $post_id = $wpdb->get_row('SELECT * FROM wp_posts WHERE post_title="'.$order_no.'";');
+
+    $wpdb->insert(
+        'wp_postmeta',
+        array(
+            'post_id' => $post_id->ID,
+            'meta_key' => 'customer_name',
+            'meta_value' => $query->name." ".$query->surname
+        ),
+        array(
+            '%d',
+            '%s',
+            '%s'
+        )
+    );
+    $wpdb->insert(
+        'wp_postmeta',
+        array(
+            'post_id' => $post_id->ID,
+            'meta_key' => 'customer_email',
+            'meta_value' => $query->email
+        ),
+        array(
+            '%d',
+            '%s',
+            '%s'
+        )
+    );
+    $wpdb->insert(
+        'wp_postmeta',
+        array(
+            'post_id' => $post_id->ID,
+            'meta_key' => 'customer_number',
+            'meta_value' => $query->number
+        ),
+        array(
+            '%d',
+            '%s',
+            '%s'
+        )
+    );
+    $wpdb->insert(
+        'wp_postmeta',
+        array(
+            'post_id' => $post_id->ID,
+            'meta_key' => 'customer_total',
+            'meta_value' => $total
+        ),
+        array(
+            '%d',
+            '%s',
+            '%s'
+        )
+    );
+    $wpdb->insert(
+        'wp_postmeta',
+        array(
+            'post_id' => $post_id->ID,
+            'meta_key' => 'customer_delivered_status',
+            'meta_value' => "Not Delivered"
+        ),
+        array(
+            '%d',
+            '%s',
+            '%s'
+        )
+    );
+    $wpdb->insert(
+        'wp_postmeta',
+        array(
+            'post_id' => $post_id->ID,
+            'meta_key' => 'customer_date',
+            'meta_value' => $post_id->post_date
+        ),
+        array(
+            '%d',
+            '%s',
+            '%s'
+        )
+    );
 }
 else{
     wp_redirect('http://localhost/E-Store/payment-failure');
