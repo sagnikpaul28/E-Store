@@ -768,8 +768,46 @@ h3#account-hello{
 	border-top: 8px solid rgb(0,96,99);
 }
 
-
-
+/*Forgot password*/
+#forgot-password, #confirmation-code-submit, #change-password-div{
+	margin-top: 20vh;
+	width: 40%;
+	padding: 2vmin;
+	border: 1px solid lightseagreen;
+	box-shadow: 0 0 5vmin lightseagreen;
+}
+#forgot-password label{
+	text-align: left;
+	width: 100%;
+}
+#confirmation-code-submit label{
+	width: 100%;
+	text-align: left;
+}
+#change-password-div label{
+	text-align: left;
+	width: 100%;
+}
+#code-has-been-sent-heading{
+	width: 100%;
+	text-align: left;
+	color: red;
+}
+@media screen and (max-width: 982px){
+	#forgot-password, #change-password-div, #confirmation-code-submit{
+		width: 75%;
+	}
+}
+@media screen and (max-width: 768px){
+	#forgot-password, #confirmation-code-submit, #change-password-div{
+		width: 90%;
+	}
+}
+#success-heading{
+	width: 95%;
+	color: lightseagreen;
+	margin-top: 30vh;
+}
 
 
 
